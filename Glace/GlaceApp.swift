@@ -25,6 +25,8 @@ struct GlaceApp: App {
 }
 
 private struct WatchSetupRootView: View {
+    @Environment(\.layoutDirection) private var inheritedLayoutDirection
+
     @State private var isShowingPasscodeSetup = false
 
     var body: some View {
@@ -36,5 +38,9 @@ private struct WatchSetupRootView: View {
                 PasscodeSetupView()
             }
         }
+        .environment(
+            \.layoutDirection,
+            isShowingPasscodeSetup ? .leftToRight : inheritedLayoutDirection
+        )
     }
 }
