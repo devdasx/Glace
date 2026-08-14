@@ -10,9 +10,9 @@ Glace is in early design and development. This repository currently contains the
 
 ## Visual identity
 
-<img src="Glace/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="Glace app icon: an open geometric G" width="144">
+<img src="Brand/GlaceBrandMark.svg" alt="Glace brand mark: a blue open geometric G without a background" width="144">
 
-Glace and Glace Signer share the same bold, open geometric `G`, making them immediately recognizable as two parts of one Bitcoin wallet. The watch-only app places the white mark on a clear blue background; the companion signer uses the identical mark on black so the app roles stay distinct without changing the shared symbol. The reproducible [vector master](Brand/GlaceAppIcon.svg) is rendered as the iOS application icon and the native onboarding brand mark.
+Glace and Glace Signer share the same bold, open geometric `G`, making them immediately recognizable as two parts of one Bitcoin wallet. The watch-only app uses the standalone mark in blue; the companion signer uses the identical mark in black, adapting to the system foreground color in dark appearance for legibility. The background-free [brand-mark master](Brand/GlaceBrandMark.svg) is rendered directly in onboarding, while the opaque [app-icon master](Brand/GlaceAppIcon.svg) satisfies the iOS application-icon requirements.
 
 ## How the two apps complement each other
 

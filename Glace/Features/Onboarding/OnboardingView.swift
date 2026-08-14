@@ -38,12 +38,6 @@ struct OnboardingView: View {
                                 width: usesCompactVerticalRhythm ? 88 : 112,
                                 height: usesCompactVerticalRhythm ? 88 : 112
                             )
-                            .clipShape(
-                                .rect(
-                                    cornerRadius: usesCompactVerticalRhythm ? 20 : 26,
-                                    style: .continuous
-                                )
-                            )
                             .accessibilityHidden(true)
 
                         VStack(spacing: usesCompactVerticalRhythm ? 8 : 12) {
@@ -127,6 +121,7 @@ struct OnboardingView: View {
                 onContinue()
             } label: {
                 Text("onboarding.action.continue")
+                    .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.glassProminent)
