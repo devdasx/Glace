@@ -1,0 +1,102 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "onboarding.action.continue" : {
+      "comment" : "Primary action that advances from onboarding to the watch-only wallet setup flow.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a Watch-Only Wallet"
+          }
+        }
+      }
+    },
+    "onboarding.brand.title" : {
+      "comment" : "Short product name shown prominently on the onboarding screen.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glace"
+          }
+        }
+      }
+    },
+    "onboarding.context.title" : {
+      "comment" : "Compact label explaining that this Glace app is a Bitcoin watch-only wallet.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Watch-Only Bitcoin Wallet"
+          }
+        }
+      }
+    },
+    "onboarding.hero.body" : {
+      "comment" : "Onboarding explanation of the public-data-only wallet import model.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a public address or extended public key to follow your wallet—without bringing private keys online."
+          }
+        }
+      }
+    },
+    "onboarding.hero.title" : {
+      "comment" : "Primary onboarding promise contrasting wallet visibility with offline key storage.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See your Bitcoin. Keep your keys offline."
+          }
+        }
+      }
+    },
+    "onboarding.safety.body" : {
+      "comment" : "Explains what watch-only means and that this app cannot authorize spending.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glace accepts public wallet information only. It can watch your Bitcoin, but it cannot sign or spend it."
+          }
+        }
+      }
+    },
+    "onboarding.safety.title" : {
+      "comment" : "Heading for the watch-only security explanation.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your secrets stay elsewhere"
+          }
+        }
+      }
+    },
+    "onboarding.security.note" : {
+      "comment" : "Persistent security warning below the onboarding action.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Never enter a seed phrase or private key into Glace."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

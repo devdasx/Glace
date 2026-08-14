@@ -9,7 +9,7 @@ The first development phase will focus exclusively on the watch-only app.
 
 ## Project status
 
-Glace is currently in the planning stage. No application code, release, or usable wallet is available yet. Do not use this repository or any unofficial artifact to secure real funds.
+Glace is in early design and development. The native iOS project currently contains the first watch-only onboarding experience; wallet import and Bitcoin functionality have not been implemented yet. No release or usable wallet is available. Do not use this repository or any unofficial artifact to secure real funds.
 
 ## Core principles
 
@@ -18,6 +18,24 @@ Glace is currently in the planning stage. No application code, release, or usabl
 - Localization-ready UI with English source strings first, native LTR/RTL behavior, adaptive iPhone/iPad layouts, Dynamic Type, and complete light/dark appearance support.
 - Deliberate, restrained interaction design with meaningful animation, accessibility, and semantic haptic feedback.
 - Public source history and a verifiable release process designed to connect future binaries to exact source revisions, build inputs, signatures, provenance, and checksums.
+
+## Development build
+
+The current project is generated and verified with:
+
+- Xcode 26.6 (`17F113`)
+- Apple Swift 6.3.3
+- XcodeGen 2.45.4
+- iOS 26.0 deployment target
+
+Generate and build the project from a clean checkout:
+
+```sh
+xcodegen generate --spec project.yml
+xcodebuild -project Glace.xcodeproj -scheme Glace -destination 'generic/platform=iOS Simulator' build
+```
+
+The app currently has no third-party runtime dependencies. Simulator builds verify compilation and layout behavior; the meaning and physical feel of haptic feedback must also be checked on supported hardware before release.
 
 ## Security
 

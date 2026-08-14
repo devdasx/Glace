@@ -1,0 +1,26 @@
+# Apple and Xcode local state
+.DS_Store
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Build artifacts
+*.ipa
+*.xcarchive
+*.dSYM
+*.dSYM.zip
+
+# Signing material and local secrets
+.env
+.env.*
+*.cer
+*.key
+*.mobileprovision
+*.p12
+
+# Repository policy: README.md is the only publishable Markdown file.
+*.[mM][dD]
+!README.md
