@@ -25,18 +25,6 @@
         }
       }
     },
-    "onboarding.context.title" : {
-      "comment" : "Compact label explaining that this Glace app is a Bitcoin watch-only wallet.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Watch-Only Bitcoin Wallet"
-          }
-        }
-      }
-    },
     "onboarding.hero.body" : {
       "comment" : "Onboarding explanation of the public-data-only wallet import model.",
       "extractionState" : "manual",
@@ -57,30 +45,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "See your Bitcoin. Keep your keys offline."
-          }
-        }
-      }
-    },
-    "onboarding.safety.body" : {
-      "comment" : "Explains what watch-only means and that this app cannot authorize spending.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Glace holds public wallet information only. It watches your Bitcoin; Glace Signer reviews and signs requests offline."
-          }
-        }
-      }
-    },
-    "onboarding.safety.title" : {
-      "comment" : "Heading for the watch-only security explanation.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your secrets stay elsewhere"
           }
         }
       }
