@@ -13,13 +13,28 @@ struct GlaceApp: App {
     private var rootView: some View {
 #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("-GlaceForceRightToLeft") {
-            OnboardingView()
+            WatchSetupRootView()
                 .environment(\.layoutDirection, .rightToLeft)
         } else {
-            OnboardingView()
+            WatchSetupRootView()
         }
 #else
-        OnboardingView()
+        WatchSetupRootView()
 #endif
+    }
+}
+
+private struct WatchSetupRootView: View {
+    @State private var isShowingPasscodeSetup = false
+
+    var body: some View {
+        NavigationStack {
+            OnboardingView {
+                isShowingPasscodeSetup = true
+            }
+            .navigationDestination(isPresented: $isShowingPasscodeSetup) {
+                PasscodeSetupView()
+            }
+        }
     }
 }

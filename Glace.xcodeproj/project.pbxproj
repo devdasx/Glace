@@ -11,6 +11,7 @@
 		486C374F9F4838F2CF65BF2A /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */; };
 		57F9CB9BD1AE71D75F2A01C6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3E708C179B88D251EABBE /* OnboardingView.swift */; };
 		6B4DC1FDF0F7497330FF9CF3 /* GlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */; };
+		A3F6C1D92B7E4A5081C9D001 /* PasscodeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6C1D92B7E4A5081C9D002 /* PasscodeSetupView.swift */; };
 		C257C755A040225AB8EE65E7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +20,7 @@
 		70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlaceApp.swift; sourceTree = "<group>"; };
 		864AFA07735C76DEA77405CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FC3E708C179B88D251EABBE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A3F6C1D92B7E4A5081C9D002 /* PasscodeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeSetupView.swift; sourceTree = "<group>"; };
 		E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EA982764E3AE352D2373E0B3 /* Glace.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Glace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -28,8 +30,17 @@
 			isa = PBXGroup;
 			children = (
 				B62CD336737937B8DCF5A287 /* Onboarding */,
+				A3F6C1D92B7E4A5081C9D003 /* Passcode */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		A3F6C1D92B7E4A5081C9D003 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				A3F6C1D92B7E4A5081C9D002 /* PasscodeSetupView.swift */,
+			);
+			path = Passcode;
 			sourceTree = "<group>";
 		};
 		9857F43231F114A33AC85694 = {
@@ -148,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F6C1D92B7E4A5081C9D001 /* PasscodeSetupView.swift in Sources */,
 				6B4DC1FDF0F7497330FF9CF3 /* GlaceApp.swift in Sources */,
 				57F9CB9BD1AE71D75F2A01C6 /* OnboardingView.swift in Sources */,
 			);
