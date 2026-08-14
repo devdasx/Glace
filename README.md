@@ -1,12 +1,23 @@
 # Glace: Bitcoin Wallet - BTC
 
-Glace is the online, watch-only half of a two-application Bitcoin wallet for native iOS. It will import public Bitcoin addresses, public keys, extended public keys, and supported output descriptors without ever requesting or handling signing secrets.
+Glace is the online, watch-only half of a two-application Bitcoin wallet for native iOS. Its current setup flow imports supported public Bitcoin addresses and extended public keys without requesting or handling signing secrets.
 
 Its independent companion is [Glace Signer: Offline Bitcoin Signer - BTC](https://github.com/devdasx/Glace-Signer), which is designed to review and sign Bitcoin transactions on a separate, disconnected iOS device. The repositories, application targets, bundle identifiers, and security responsibilities remain independent.
 
 ## Project status
 
-Glace is in early design and development. This repository currently contains the native onboarding experience for the watch-only app. Wallet import, balance monitoring, transaction construction, PSBT exchange, broadcasting, and the companion signing workflow have not been implemented yet. No release or usable wallet is available. Do not use this repository or any unofficial artifact to secure real funds.
+Glace is in early development. The repository now implements the complete first-time watch-only setup slice:
+
+- Native onboarding followed by separate Set Passcode and Confirm Passcode screens with a six-digit, LTR, ASCII keypad.
+- Local checksum and structure validation for supported mainnet and testnet Base58, Bech32, and Bech32m addresses.
+- Validation for standard BIP32 and supported SLIP-132 extended-public-key versions, including `xpub`, `tpub`, `ypub`, `upub`, `zpub`, `vpub`, and their supported multisignature variants.
+- Explicit wallet-standard selection for ambiguous `xpub` and `tpub` data, so BIP44, BIP49, BIP84, BIP86, and supported multisignature semantics are not guessed.
+- Advanced public metadata for a local wallet name, optional BIP32 origin path, and address gap limit.
+- AES-GCM protection derived from the confirmed passcode and this-device-only Keychain persistence, followed by an import summary and success screen.
+
+Glace deliberately does not accept a BIP39 passphrase. A passphrase changes signing keys and belongs only in Glace Signer; this app imports the resulting public account key instead.
+
+Balance monitoring, address derivation from imported account keys, transaction construction, PSBT exchange, broadcasting, wallet unlocking, migration, backup, and release distribution are not implemented yet. There is no production release or independently audited wallet. Do not use this repository or an unofficial artifact to secure real funds.
 
 ## Visual identity
 
@@ -28,7 +39,7 @@ Interoperability will use standardized Bitcoin PSBT data, with BIP174 and BIP370
 ## Core principles
 
 - Bitcoin only, with comprehensive support planned for established address, script, public-key, and derivation standards, including BIP32, BIP44, BIP49, BIP84, and BIP86.
-- Native iOS 26 interfaces built with current Apple frameworks and Swift APIs.
+- Native iOS 26 interfaces built only with Apple UI frameworks and current Swift APIs. Reviewed external packages may be used only below the interface for Bitcoin or security-critical core work.
 - Localization-ready UI with English source strings first, native LTR/RTL behavior, adaptive iPhone/iPad layouts, Dynamic Type, and a deliberate native light-only appearance.
 - Apple system typography throughout, with the native rounded San Francisco design reserved for titles and headings.
 - Deliberate, restrained interaction design with meaningful animation, accessibility, and semantic haptic feedback.
@@ -43,17 +54,27 @@ The current project is generated and verified with:
 - XcodeGen 2.45.4
 - iOS 26.0 deployment target
 
-Generate and build the project from a clean checkout:
+The reproducible core-test manifest and Xcode project both pin `swift-secp256k1` 0.23.2. It is used only to validate secp256k1 extended-public-key material; it provides no app UI or runtime network client. Both `Package.resolved` files record the resolved upstream revision.
+
+Run the deterministic Bitcoin and encrypted-vault checks without Simulator:
+
+```sh
+swift test
+```
+
+Generate the Xcode project and compile the app plus its iOS unit-test target for a generic device:
 
 ```sh
 xcodegen generate --spec project.yml
-xcodebuild -project Glace.xcodeproj -scheme Glace -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project Glace.xcodeproj -scheme Glace -sdk iphoneos -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build-for-testing
 ```
 
-The app currently has no third-party runtime dependencies. The command above performs a compile-only generic iOS build without booting Simulator. Runtime Simulator validation is performed by the project owner, and the meaning and physical feel of haptic feedback must be checked on supported hardware before release.
+The host suite currently executes six focused checks for published address vectors, BIP32 public-key parsing, checksums, standard ambiguity, path validation, and wrong-passcode authenticated-decryption failure. The Xcode command performs a compile-only generic iOS build without booting Simulator. Runtime layout and interaction validation remains with the project owner, and haptic timing must be checked on supported physical hardware before release.
 
 ## Security
 
-Glace will never request, derive, store, or transmit seed phrases, private keys, WIF keys, extended private keys, or other signing secrets. Signing belongs exclusively to the separate Glace Signer repository and application. Public wallet data and unsigned or signed PSBTs are not secrets, but they can expose financial privacy and must still be validated and protected appropriately.
+Glace must never request, derive, store, or transmit seed phrases, BIP39 passphrases, private keys, WIF keys, extended private keys, or other signing secrets. Signing belongs exclusively to the separate Glace Signer repository and application. Public wallet data and future unsigned or signed PSBTs are not signing secrets, but they can expose financial privacy and must still be validated and protected appropriately.
+
+The current vault uses PBKDF2-HMAC-SHA512 with 210,000 rounds, a random salt, AES-GCM authenticated encryption, and `kSecAttrAccessibleWhenUnlockedThisDeviceOnly`. This implementation and its six-digit passcode threat model have not received an independent security audit. A source build passing the included vectors is evidence for those tested behaviors, not proof that the app is safe for funds.
 
 No software can honestly guarantee absolute safety. Future Glace releases must state exactly what was verified, publish the available verification evidence, and disclose residual risks and any Apple-controlled build or distribution steps that cannot be reproduced independently.

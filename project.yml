@@ -14,6 +14,11 @@ configs:
   Debug: debug
   Release: release
 
+packages:
+  swift-secp256k1:
+    url: https://github.com/21-DOT-DEV/swift-secp256k1.git
+    exactVersion: 0.23.2
+
 settings:
   base:
     CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
@@ -30,6 +35,9 @@ targets:
     platform: iOS
     sources:
       - path: Glace
+    dependencies:
+      - package: swift-secp256k1
+        product: P256K
     settings:
       base:
         CODE_SIGN_STYLE: Automatic
@@ -51,11 +59,25 @@ targets:
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
         SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
 
+  GlaceTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: GlaceTests
+    dependencies:
+      - target: Glace
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.devdasx.glace.tests
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+
 schemes:
   Glace:
     build:
       targets:
         Glace: all
+        GlaceTests: [test]
     run:
       config: Debug
     archive:

@@ -21,6 +21,20 @@
                ReferencedContainer = "container:Glace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "26023BF67D1A0F01621E5064"
+               BuildableName = "GlaceTests.xctest"
+               BlueprintName = "GlaceTests"
+               ReferencedContainer = "container:Glace.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

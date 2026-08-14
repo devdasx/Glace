@@ -1,6 +1,678 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "bitcoin.network.mainnet" : {
+      "comment" : "Main Bitcoin network name shown after watch-only import.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitcoin Mainnet"
+          }
+        }
+      }
+    },
+    "bitcoin.network.testnet" : {
+      "comment" : "Bitcoin test network name shown after watch-only import.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitcoin Testnet"
+          }
+        }
+      }
+    },
+    "watch.import.title" : {
+      "comment" : "Rounded title for the watch-only public wallet import screen.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Watch‑Only Wallet"
+          }
+        }
+      }
+    },
+    "watch.import.body" : {
+      "comment" : "Introductory text explaining that the watch app accepts public Bitcoin data only.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a Bitcoin address or an extended public key. Glace validates it locally and will never ask for a wallet secret."
+          }
+        }
+      }
+    },
+    "watch.import.type.section" : {
+      "comment" : "Section heading containing the public material format picker.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Public Wallet Data"
+          }
+        }
+      }
+    },
+    "watch.import.type.label" : {
+      "comment" : "Label for choosing the kind of public Bitcoin material.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Type"
+          }
+        }
+      }
+    },
+    "watch.import.type.address" : {
+      "comment" : "Picker option for a single public Bitcoin address.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Address"
+          }
+        }
+      }
+    },
+    "watch.import.type.extended_public_key" : {
+      "comment" : "Picker option for an extended public key.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extended Public Key"
+          }
+        }
+      }
+    },
+    "watch.import.address.placeholder" : {
+      "comment" : "Placeholder for public Bitcoin address input.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a Bitcoin address"
+          }
+        }
+      }
+    },
+    "watch.import.extended_public_key.placeholder" : {
+      "comment" : "Placeholder for extended public-key input.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter xpub, ypub, zpub, or a supported variant"
+          }
+        }
+      }
+    },
+    "watch.import.help.address" : {
+      "comment" : "Footer describing address encodings validated by the watch app.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepts checksummed legacy, script-hash, SegWit, and Taproot addresses for Bitcoin mainnet or testnet."
+          }
+        }
+      }
+    },
+    "watch.import.help.extended_public_key" : {
+      "comment" : "Footer describing extended public-key encodings validated by the watch app.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepts valid xpub, ypub, zpub and their standard testnet or multisignature counterparts."
+          }
+        }
+      }
+    },
+    "watch.import.advanced.title" : {
+      "comment" : "Disclosure control title for optional watch-only wallet metadata.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced Settings"
+          }
+        }
+      }
+    },
+    "watch.import.wallet_name.placeholder" : {
+      "comment" : "Placeholder for an optional local wallet name.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optional wallet name"
+          }
+        }
+      }
+    },
+    "watch.import.derivation.placeholder" : {
+      "comment" : "Placeholder for optional BIP32 origin-path metadata.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optional origin path, such as m/84'/0'/0'"
+          }
+        }
+      }
+    },
+    "watch.import.gap_limit.label" : {
+      "comment" : "Label for the BIP32 address discovery gap limit.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Address Gap Limit"
+          }
+        }
+      }
+    },
+    "watch.import.wallet_standard.label" : {
+      "comment" : "Picker label for identifying the Bitcoin standard represented by an ambiguous xpub or tpub.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wallet Standard"
+          }
+        }
+      }
+    },
+    "watch.import.wallet_standard.unspecified" : {
+      "comment" : "Initial picker value before the user identifies an ambiguous standard extended public key.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose When Required"
+          }
+        }
+      }
+    },
+    "watch.import.wallet_standard.note" : {
+      "comment" : "Explains why a standard xpub or tpub prefix can require an explicit wallet-standard selection.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An xpub or tpub does not encode its address standard. Choose the standard shown by the wallet that exported it. Versioned ypub, zpub, Ypub, and Zpub keys are detected automatically."
+          }
+        }
+      }
+    },
+    "watch.import.passphrase.title" : {
+      "comment" : "Rounded advanced-settings heading explaining passphrase separation.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BIP39 Passphrase"
+          }
+        }
+      }
+    },
+    "watch.import.passphrase.body" : {
+      "comment" : "Security explanation that the watch-only app never accepts a BIP39 passphrase.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glace Watch never accepts a passphrase because it can reveal or derive signing secrets. Enter it only in Glace Signer, then import the resulting public key here."
+          }
+        }
+      }
+    },
+    "watch.import.action.import" : {
+      "comment" : "Primary action that validates and securely stores public wallet data.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Wallet"
+          }
+        }
+      }
+    },
+    "watch.import.error.empty" : {
+      "comment" : "Validation error shown when no public Bitcoin data was entered.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a Bitcoin address or extended public key."
+          }
+        }
+      }
+    },
+    "watch.import.error.address" : {
+      "comment" : "Validation error for an address with an unsupported network, encoding, length, or checksum.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Bitcoin address is not valid. Check its network, characters, and checksum."
+          }
+        }
+      }
+    },
+    "watch.import.error.extended_public_key" : {
+      "comment" : "Validation error for an extended public key with invalid metadata, key bytes, or checksum.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This extended public key is not valid. Check its prefix, characters, public key, and checksum."
+          }
+        }
+      }
+    },
+    "watch.import.error.extended_public_key_standard" : {
+      "comment" : "Validation guidance when a standard xpub or tpub cannot identify its wallet standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This xpub or tpub is valid but its wallet standard is ambiguous. Open Advanced Settings and choose the standard used by the exporting wallet."
+          }
+        }
+      }
+    },
+    "watch.import.error.derivation_path" : {
+      "comment" : "Validation error for malformed BIP32 origin-path metadata.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use a valid BIP32 path beginning with m, such as m/84'/0'/0'."
+          }
+        }
+      }
+    },
+    "watch.import.error.secure_storage" : {
+      "comment" : "Error shown when encrypted this-device-only Keychain persistence fails.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glace could not protect this watch-only wallet in the device Keychain. Nothing was imported."
+          }
+        }
+      }
+    },
+    "watch.success.title" : {
+      "comment" : "Rounded heading on successful watch-only wallet import.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wallet Added"
+          }
+        }
+      }
+    },
+    "watch.success.body" : {
+      "comment" : "Success explanation after valid public wallet data is securely stored.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your public Bitcoin wallet data is protected on this device and ready for the watch-only experience."
+          }
+        }
+      }
+    },
+    "watch.success.summary.section" : {
+      "comment" : "Section heading summarizing the imported public wallet.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imported Wallet"
+          }
+        }
+      }
+    },
+    "watch.success.network.label" : {
+      "comment" : "Label for the detected Bitcoin network.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitcoin Network"
+          }
+        }
+      }
+    },
+    "watch.success.type.label" : {
+      "comment" : "Label for the detected address or public-key type.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detected Type"
+          }
+        }
+      }
+    },
+    "watch.success.standard.label" : {
+      "comment" : "Label for the selected or detected Bitcoin wallet standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wallet Standard"
+          }
+        }
+      }
+    },
+    "watch.success.name.label" : {
+      "comment" : "Label for an optional local wallet name.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wallet Name"
+          }
+        }
+      }
+    },
+    "watch.success.action.done" : {
+      "comment" : "Text-only action leaving successful watch-only import.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "watch.failure.title" : {
+      "comment" : "Title for an unexpected watch-only import state.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Couldn’t Finish"
+          }
+        }
+      }
+    },
+    "watch.failure.body" : {
+      "comment" : "Description for an unexpected missing import result.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No usable public wallet record is available. Restart the setup flow."
+          }
+        }
+      }
+    },
+    "watch.failure.action.restart" : {
+      "comment" : "Text-only action restarting watch-only setup.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restart Setup"
+          }
+        }
+      }
+    },
+    "watch.material.legacy_address" : {
+      "comment" : "Detected type name for a P2PKH address.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legacy Address · P2PKH"
+          }
+        }
+      }
+    },
+    "watch.material.script_hash_address" : {
+      "comment" : "Detected type name for a P2SH address.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Script‑Hash Address · P2SH"
+          }
+        }
+      }
+    },
+    "watch.material.native_segwit_address" : {
+      "comment" : "Detected type name for a P2WPKH address.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Native SegWit Address · P2WPKH"
+          }
+        }
+      }
+    },
+    "watch.material.native_segwit_script_address" : {
+      "comment" : "Detected type name for a P2WSH address.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Native SegWit Script Address · P2WSH"
+          }
+        }
+      }
+    },
+    "watch.material.taproot_address" : {
+      "comment" : "Detected type name for a P2TR address.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taproot Address · P2TR"
+          }
+        }
+      }
+    },
+    "watch.material.witness_address" : {
+      "comment" : "Detected type name for another valid witness-program address.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Witness Address"
+          }
+        }
+      }
+    },
+    "watch.material.xpub" : {
+      "comment" : "Detected type name for a standard BIP32 extended public key whose address standard is selected separately.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard Extended Public Key · xpub/tpub"
+          }
+        }
+      }
+    },
+    "watch.standard.legacy" : {
+      "comment" : "Display name for a BIP44 legacy single-signature wallet standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BIP44 · Legacy"
+          }
+        }
+      }
+    },
+    "watch.standard.nested_segwit" : {
+      "comment" : "Display name for a BIP49 wrapped SegWit single-signature wallet standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BIP49 · Nested SegWit"
+          }
+        }
+      }
+    },
+    "watch.standard.native_segwit" : {
+      "comment" : "Display name for a BIP84 native SegWit single-signature wallet standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BIP84 · Native SegWit"
+          }
+        }
+      }
+    },
+    "watch.standard.taproot" : {
+      "comment" : "Display name for a BIP86 Taproot single-signature wallet standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BIP86 · Taproot"
+          }
+        }
+      }
+    },
+    "watch.standard.nested_multisig" : {
+      "comment" : "Display name for a wrapped SegWit multisignature extended public-key standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nested SegWit Multisignature"
+          }
+        }
+      }
+    },
+    "watch.standard.native_multisig" : {
+      "comment" : "Display name for a native SegWit multisignature extended public-key standard.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Native SegWit Multisignature"
+          }
+        }
+      }
+    },
+    "watch.material.ypub" : {
+      "comment" : "Detected type name for a nested SegWit extended public key.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nested SegWit Extended Public Key · ypub"
+          }
+        }
+      }
+    },
+    "watch.material.zpub" : {
+      "comment" : "Detected type name for a native SegWit extended public key.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Native SegWit Extended Public Key · zpub"
+          }
+        }
+      }
+    },
+    "watch.material.multisig_nested" : {
+      "comment" : "Detected type name for a wrapped SegWit multisignature extended public key.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nested SegWit Multisignature Key"
+          }
+        }
+      }
+    },
+    "watch.material.multisig_native" : {
+      "comment" : "Detected type name for a native SegWit multisignature extended public key.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Native SegWit Multisignature Key"
+          }
+        }
+      }
+    },
     "onboarding.action.continue" : {
       "comment" : "Primary action that advances from onboarding to the watch-only wallet setup flow.",
       "extractionState" : "manual",

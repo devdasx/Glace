@@ -8,45 +8,88 @@
 
 /* Begin PBXBuildFile section */
 		0998774DC596C29CA352DF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864AFA07735C76DEA77405CA /* Assets.xcassets */; };
+		304D333987C103BC726A4995 /* WatchWalletImportFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5827342D353652CFC64C64E /* WatchWalletImportFlowView.swift */; };
+		34CA8F2FE4F81440FD98A7F5 /* BitcoinPublicMaterialParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378A4E7F509AB7A4F8007FA1 /* BitcoinPublicMaterialParserTests.swift */; };
 		486C374F9F4838F2CF65BF2A /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */; };
 		57F9CB9BD1AE71D75F2A01C6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3E708C179B88D251EABBE /* OnboardingView.swift */; };
+		65F40C374683BA46707DF0CE /* PasscodeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FB10F5274F4254DCB2823 /* PasscodeSetupView.swift */; };
 		6B4DC1FDF0F7497330FF9CF3 /* GlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */; };
-		A3F6C1D92B7E4A5081C9D001 /* PasscodeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6C1D92B7E4A5081C9D002 /* PasscodeSetupView.swift */; };
+		6DB7AB57BD60321E099B1691 /* BitcoinPublicEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F117C21B23B34930D1B2A3D /* BitcoinPublicEncoding.swift */; };
+		892760A695CF7DC0330DD20F /* BitcoinPublicMaterialParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EDCFCBCCD3BDEA6E184D4 /* BitcoinPublicMaterialParser.swift */; };
 		C257C755A040225AB8EE65E7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */; };
+		F0BB56B4FF77190BDB53F00D /* WatchWalletVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD34306B1FFF4A83EED7CE2E /* WatchWalletVault.swift */; };
+		FA60EF0862B7D245491C0BD9 /* P256K in Frameworks */ = {isa = PBXBuildFile; productRef = 98666381750279EC5CE5D4F1 /* P256K */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BC63BD4FCA7E5BF2DB2DDD3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C0D2C9D02865EC40C8682E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A6D2F66C3B53E5ABB92B012;
+			remoteInfo = Glace;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0F117C21B23B34930D1B2A3D /* BitcoinPublicEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinPublicEncoding.swift; sourceTree = "<group>"; };
 		129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		233EDCFCBCCD3BDEA6E184D4 /* BitcoinPublicMaterialParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinPublicMaterialParser.swift; sourceTree = "<group>"; };
+		34B5FCCE8D50DD24B2288641 /* GlaceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GlaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		378A4E7F509AB7A4F8007FA1 /* BitcoinPublicMaterialParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinPublicMaterialParserTests.swift; sourceTree = "<group>"; };
+		429FB10F5274F4254DCB2823 /* PasscodeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeSetupView.swift; sourceTree = "<group>"; };
 		70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlaceApp.swift; sourceTree = "<group>"; };
 		864AFA07735C76DEA77405CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FC3E708C179B88D251EABBE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		A3F6C1D92B7E4A5081C9D002 /* PasscodeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeSetupView.swift; sourceTree = "<group>"; };
+		DD34306B1FFF4A83EED7CE2E /* WatchWalletVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWalletVault.swift; sourceTree = "<group>"; };
+		E5827342D353652CFC64C64E /* WatchWalletImportFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWalletImportFlowView.swift; sourceTree = "<group>"; };
 		E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EA982764E3AE352D2373E0B3 /* Glace.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Glace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		7CE498DC260D0CCDFA5E54AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA60EF0862B7D245491C0BD9 /* P256K in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		47CBC9C81AF9D430105D2935 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				DD34306B1FFF4A83EED7CE2E /* WatchWalletVault.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
 		6B2A77E91E3EF525613A4BF6 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				CA95173391CA987C6C564B5D /* Import */,
 				B62CD336737937B8DCF5A287 /* Onboarding */,
-				A3F6C1D92B7E4A5081C9D003 /* Passcode */,
+				9D6DA2A49039A72397BCA715 /* Passcode */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		A3F6C1D92B7E4A5081C9D003 /* Passcode */ = {
+		95B3B9EB41FE52703E7B564C /* GlaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				A3F6C1D92B7E4A5081C9D002 /* PasscodeSetupView.swift */,
+				378A4E7F509AB7A4F8007FA1 /* BitcoinPublicMaterialParserTests.swift */,
 			);
-			path = Passcode;
+			path = GlaceTests;
 			sourceTree = "<group>";
 		};
 		9857F43231F114A33AC85694 = {
 			isa = PBXGroup;
 			children = (
 				995C8BAFCA8279AA6376C9F5 /* Glace */,
+				95B3B9EB41FE52703E7B564C /* GlaceTests */,
 				B0505A53C9A8F880B2FA42C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,17 +97,28 @@
 		995C8BAFCA8279AA6376C9F5 /* Glace */ = {
 			isa = PBXGroup;
 			children = (
+				EB74E8A69C06193AE553F1A2 /* Bitcoin */,
 				6B2A77E91E3EF525613A4BF6 /* Features */,
 				BDB1CF17CC74852A7D9BC3EC /* Resources */,
+				47CBC9C81AF9D430105D2935 /* Security */,
 				70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */,
 			);
 			path = Glace;
+			sourceTree = "<group>";
+		};
+		9D6DA2A49039A72397BCA715 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				429FB10F5274F4254DCB2823 /* PasscodeSetupView.swift */,
+			);
+			path = Passcode;
 			sourceTree = "<group>";
 		};
 		B0505A53C9A8F880B2FA42C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				EA982764E3AE352D2373E0B3 /* Glace.app */,
+				34B5FCCE8D50DD24B2288641 /* GlaceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,15 +141,51 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		CA95173391CA987C6C564B5D /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				E5827342D353652CFC64C64E /* WatchWalletImportFlowView.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		EB74E8A69C06193AE553F1A2 /* Bitcoin */ = {
+			isa = PBXGroup;
+			children = (
+				0F117C21B23B34930D1B2A3D /* BitcoinPublicEncoding.swift */,
+				233EDCFCBCCD3BDEA6E184D4 /* BitcoinPublicMaterialParser.swift */,
+			);
+			path = Bitcoin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		26023BF67D1A0F01621E5064 /* GlaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60EED100B3767AE6B57F228F /* Build configuration list for PBXNativeTarget "GlaceTests" */;
+			buildPhases = (
+				4B2BF07CC10F3FF871BBDDCD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F686D086B8072C009A5F5F8D /* PBXTargetDependency */,
+			);
+			name = GlaceTests;
+			packageProductDependencies = (
+			);
+			productName = GlaceTests;
+			productReference = 34B5FCCE8D50DD24B2288641 /* GlaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3A6D2F66C3B53E5ABB92B012 /* Glace */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97648401A3BCA93D38EA4831 /* Build configuration list for PBXNativeTarget "Glace" */;
 			buildPhases = (
 				42052BD7269517A69C72BEA2 /* Sources */,
 				629401999E824C7D361A9446 /* Resources */,
+				7CE498DC260D0CCDFA5E54AC /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -103,6 +193,7 @@
 			);
 			name = Glace;
 			packageProductDependencies = (
+				98666381750279EC5CE5D4F1 /* P256K */,
 			);
 			productName = Glace;
 			productReference = EA982764E3AE352D2373E0B3 /* Glace.app */;
@@ -131,12 +222,16 @@
 			);
 			mainGroup = 9857F43231F114A33AC85694;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1084C8F155E8DE00C4D92AF0 /* XCRemoteSwiftPackageReference "swift-secp256k1" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B0505A53C9A8F880B2FA42C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3A6D2F66C3B53E5ABB92B012 /* Glace */,
+				26023BF67D1A0F01621E5064 /* GlaceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -159,13 +254,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3F6C1D92B7E4A5081C9D001 /* PasscodeSetupView.swift in Sources */,
+				6DB7AB57BD60321E099B1691 /* BitcoinPublicEncoding.swift in Sources */,
+				892760A695CF7DC0330DD20F /* BitcoinPublicMaterialParser.swift in Sources */,
 				6B4DC1FDF0F7497330FF9CF3 /* GlaceApp.swift in Sources */,
 				57F9CB9BD1AE71D75F2A01C6 /* OnboardingView.swift in Sources */,
+				65F40C374683BA46707DF0CE /* PasscodeSetupView.swift in Sources */,
+				304D333987C103BC726A4995 /* WatchWalletImportFlowView.swift in Sources */,
+				F0BB56B4FF77190BDB53F00D /* WatchWalletVault.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B2BF07CC10F3FF871BBDDCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34CA8F2FE4F81440FD98A7F5 /* BitcoinPublicMaterialParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F686D086B8072C009A5F5F8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A6D2F66C3B53E5ABB92B012 /* Glace */;
+			targetProxy = BC63BD4FCA7E5BF2DB2DDD3F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0B5C980B2BC4ACEDBE9D44C5 /* Debug */ = {
@@ -329,6 +444,24 @@
 			};
 			name = Release;
 		};
+		C98054F239ADC8CC5751C697 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.devdasx.glace.tests;
+				SDKROOT = iphoneos;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glace.app/Glace";
+			};
+			name = Debug;
+		};
 		CEA7549E528C7CA86B436856 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -361,9 +494,36 @@
 			};
 			name = Release;
 		};
+		F50087FF23C7D2356705599F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.devdasx.glace.tests;
+				SDKROOT = iphoneos;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glace.app/Glace";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		60EED100B3767AE6B57F228F /* Build configuration list for PBXNativeTarget "GlaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C98054F239ADC8CC5751C697 /* Debug */,
+				F50087FF23C7D2356705599F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		97648401A3BCA93D38EA4831 /* Build configuration list for PBXNativeTarget "Glace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -383,6 +543,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1084C8F155E8DE00C4D92AF0 /* XCRemoteSwiftPackageReference "swift-secp256k1" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/21-DOT-DEV/swift-secp256k1.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.23.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98666381750279EC5CE5D4F1 /* P256K */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1084C8F155E8DE00C4D92AF0 /* XCRemoteSwiftPackageReference "swift-secp256k1" */;
+			productName = P256K;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C0D2C9D02865EC40C8682E3 /* Project object */;
 }
