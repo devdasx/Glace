@@ -3,6 +3,7 @@ import SwiftUI
 struct WatchSetupFlowView: View {
     @State private var path = [WatchSetupRoute]()
     @State private var pendingPasscode = ""
+    @State private var showsPasscodeMismatch = false
     @State private var draft = WatchImportDraft()
     @State private var importedRecord: WatchWalletRecord?
 
@@ -10,6 +11,7 @@ struct WatchSetupFlowView: View {
         NavigationStack(path: $path) {
             OnboardingView {
                 pendingPasscode = ""
+                showsPasscodeMismatch = false
                 draft = WatchImportDraft()
                 importedRecord = nil
                 path.append(.setPasscode)
@@ -17,18 +19,30 @@ struct WatchSetupFlowView: View {
             .navigationDestination(for: WatchSetupRoute.self) { route in
                 switch route {
                 case .setPasscode:
-                    PasscodeSetupView(mode: .creation) { passcode in
-                        pendingPasscode = passcode
-                        path.append(.confirmPasscode)
-                    }
-
-                case .confirmPasscode:
                     PasscodeSetupView(
-                        mode: .confirmation(expectedPasscode: pendingPasscode)
-                    ) { passcode in
-                        pendingPasscode = passcode
-                        path.append(.importWallet)
-                    }
+                        mode: .creation,
+                        showsPreviousMismatch: showsPasscodeMismatch,
+                        onSubmit: { passcode in
+                            let confirmation = PasscodeConfirmation(
+                                expectedPasscode: passcode
+                            )
+                            pendingPasscode = passcode
+                            showsPasscodeMismatch = false
+                            path.append(.confirmPasscode(confirmation))
+                        }
+                    )
+
+                case let .confirmPasscode(confirmation):
+                    PasscodeSetupView(
+                        mode: .confirmation(confirmation),
+                        onMismatch: resetPasscodeAfterMismatch,
+                        onSubmit: { passcode in
+                            pendingPasscode = passcode
+                            showsPasscodeMismatch = false
+                            removeCompletedPasscodeRoutes()
+                            path.append(.importWallet)
+                        }
+                    )
 
                 case .importWallet:
                     WatchWalletImportView(draft: $draft) {
@@ -47,6 +61,29 @@ struct WatchSetupFlowView: View {
                     }
                 }
             }
+        }
+    }
+
+    private func resetPasscodeAfterMismatch() {
+        guard let currentRoute = path.last,
+              case .confirmPasscode = currentRoute else {
+            return
+        }
+
+        pendingPasscode = ""
+        showsPasscodeMismatch = true
+        path.removeLast()
+    }
+
+    private func removeCompletedPasscodeRoutes() {
+        guard let currentRoute = path.last,
+              case .confirmPasscode = currentRoute else {
+            return
+        }
+
+        path.removeLast()
+        if path.last == .setPasscode {
+            path.removeLast()
         }
     }
 
@@ -86,6 +123,7 @@ struct WatchSetupFlowView: View {
 
     private func restart() {
         pendingPasscode = ""
+        showsPasscodeMismatch = false
         draft = WatchImportDraft()
         importedRecord = nil
         path.removeAll()
@@ -93,6 +131,7 @@ struct WatchSetupFlowView: View {
 
     private func finish() {
         pendingPasscode = ""
+        showsPasscodeMismatch = false
         draft = WatchImportDraft()
         importedRecord = nil
         path.removeAll()
@@ -101,7 +140,7 @@ struct WatchSetupFlowView: View {
 
 private enum WatchSetupRoute: Hashable {
     case setPasscode
-    case confirmPasscode
+    case confirmPasscode(PasscodeConfirmation)
     case importWallet
     case success
 }

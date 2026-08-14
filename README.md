@@ -8,7 +8,7 @@ Its independent companion is [Glace Signer: Offline Bitcoin Signer - BTC](https:
 
 Glace is in early development. The repository now implements the complete first-time watch-only setup slice:
 
-- Native onboarding followed by separate Set Passcode and Confirm Passcode screens with a six-digit, LTR, ASCII keypad.
+- Native onboarding followed by separate Set Passcode and Confirm Passcode screens with a six-digit, LTR, ASCII keypad; a mismatch clears both entries and returns to Set Passcode.
 - Local checksum and structure validation for supported mainnet and testnet Base58, Bech32, and Bech32m addresses.
 - Validation for standard BIP32 and supported SLIP-132 extended-public-key versions, including `xpub`, `tpub`, `ypub`, `upub`, `zpub`, `vpub`, and their supported multisignature variants.
 - Explicit wallet-standard selection for ambiguous `xpub` and `tpub` data, so BIP44, BIP49, BIP84, BIP86, and supported multisignature semantics are not guessed.
@@ -69,7 +69,7 @@ xcodegen generate --spec project.yml
 xcodebuild -project Glace.xcodeproj -scheme Glace -sdk iphoneos -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build-for-testing
 ```
 
-The host suite currently executes six focused checks for published address vectors, BIP32 public-key parsing, checksums, standard ambiguity, path validation, and wrong-passcode authenticated-decryption failure. The Xcode command performs a compile-only generic iOS build without booting Simulator. Runtime layout and interaction validation remains with the project owner, and haptic timing must be checked on supported physical hardware before release.
+The host suite currently executes eight focused checks for exact passcode confirmation, published address vectors, BIP32 public-key parsing, checksums, standard ambiguity, path validation, and wrong-passcode authenticated-decryption failure. The Xcode command performs a compile-only generic iOS build without booting Simulator. Runtime layout and interaction validation remains with the project owner, and haptic timing must be checked on supported physical hardware before release.
 
 ## Security
 
