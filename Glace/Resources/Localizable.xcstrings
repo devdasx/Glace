@@ -14,7 +14,7 @@
       }
     },
     "watch.import.title" : {
-      "comment" : "Rounded title for the watch-only public wallet import screen.",
+      "comment" : "Rounded large navigation-bar title for the watch-only public wallet import screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -26,7 +26,7 @@
       }
     },
     "watch.import.body" : {
-      "comment" : "Introductory text explaining that the watch app accepts public Bitcoin data only.",
+      "comment" : "Navigation-bar subtitle explaining that the watch app accepts public Bitcoin data only.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -242,7 +242,7 @@
       }
     },
     "watch.success.title" : {
-      "comment" : "Rounded heading on successful watch-only wallet import.",
+      "comment" : "Rounded large navigation-bar title after successful watch-only wallet import.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -254,7 +254,7 @@
       }
     },
     "watch.success.body" : {
-      "comment" : "Success explanation after valid public wallet data is securely stored.",
+      "comment" : "Navigation-bar subtitle after valid public wallet data is securely stored.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -326,7 +326,7 @@
       }
     },
     "watch.failure.title" : {
-      "comment" : "Title for an unexpected watch-only import state.",
+      "comment" : "Rounded large navigation-bar title for an unexpected watch-only import state.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -338,7 +338,7 @@
       }
     },
     "watch.failure.body" : {
-      "comment" : "Description for an unexpected missing import result.",
+      "comment" : "Navigation-bar subtitle for an unexpected missing import result.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -578,7 +578,7 @@
       }
     },
     "onboarding.brand.title" : {
-      "comment" : "Short product name shown prominently on the onboarding screen.",
+      "comment" : "Short product name used as the rounded large navigation-bar title on onboarding.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -602,7 +602,7 @@
       }
     },
     "onboarding.hero.title" : {
-      "comment" : "Primary onboarding promise contrasting wallet visibility with offline key storage.",
+      "comment" : "Navigation-bar subtitle contrasting wallet visibility with offline key storage on onboarding.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -626,7 +626,7 @@
       }
     },
     "passcode.confirm.body" : {
-      "comment" : "Instruction beneath the Confirm Passcode heading.",
+      "comment" : "Navigation-bar subtitle for the Confirm Passcode screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -638,7 +638,7 @@
       }
     },
     "passcode.confirm.title" : {
-      "comment" : "Rounded heading for the second passcode entry screen.",
+      "comment" : "Rounded large navigation-bar title for the second passcode entry screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -734,7 +734,7 @@
       }
     },
     "passcode.set.body" : {
-      "comment" : "Instruction beneath the Set a Passcode heading.",
+      "comment" : "Navigation-bar subtitle for the Set a Passcode screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -746,7 +746,7 @@
       }
     },
     "passcode.set.title" : {
-      "comment" : "Rounded heading for the first passcode entry screen.",
+      "comment" : "Rounded large navigation-bar title for the first passcode entry screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

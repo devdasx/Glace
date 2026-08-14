@@ -32,24 +32,11 @@ struct OnboardingView: View {
                             )
                             .accessibilityHidden(true)
 
-                        VStack(spacing: usesCompactVerticalRhythm ? 8 : 12) {
-                            Text("onboarding.brand.title")
-                                .font(.largeTitle.bold())
-                                .fontDesign(.rounded)
-                                .foregroundStyle(.primary)
-
-                            Text("onboarding.hero.title")
-                                .font(.title2.weight(.semibold))
-                                .fontDesign(.rounded)
-                                .foregroundStyle(.primary)
-                                .multilineTextAlignment(.center)
-
-                            Text("onboarding.hero.body")
-                                .font(.body)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
+                        Text("onboarding.hero.body")
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     .accessibilityElement(children: .combine)
 
@@ -74,6 +61,15 @@ struct OnboardingView: View {
             .scrollBounceBehavior(.basedOnSize)
         }
         .background(Color(uiColor: .systemBackground))
+        .navigationTitle(
+            Text("onboarding.brand.title")
+                .fontDesign(.rounded)
+        )
+        .navigationSubtitle(
+            Text("onboarding.hero.title")
+                .fontDesign(.rounded)
+        )
+        .toolbarTitleDisplayMode(.large)
         .safeAreaBar(edge: .bottom, spacing: 0) {
             if !dynamicTypeSize.isAccessibilitySize {
                 actionSection

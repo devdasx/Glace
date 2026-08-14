@@ -9,6 +9,7 @@ Its independent companion is [Glace Signer: Offline Bitcoin Signer - BTC](https:
 Glace is in early development. The repository now implements the complete first-time watch-only setup slice:
 
 - Native onboarding followed by separate Set Passcode and Confirm Passcode screens with a six-digit, LTR, ASCII keypad; a mismatch clears both entries and returns to Set Passcode.
+- Native large navigation titles and subtitles remain in the app bar and collapse with scrolling instead of occupying form or list rows.
 - Mainnet-only checksum and structure validation for supported Base58, Bech32, and Bech32m addresses; testnet material is rejected.
 - Validation for mainnet BIP32 and supported SLIP-132 extended-public-key versions, including `xpub`, `ypub`, `zpub`, and their supported multisignature variants.
 - Explicit wallet-standard selection in the main import form for ambiguous `xpub` data, so BIP44, BIP49, BIP84, BIP86, and supported multisignature semantics are not guessed.

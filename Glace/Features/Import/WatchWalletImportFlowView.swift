@@ -172,16 +172,6 @@ private struct WatchWalletImportView: View {
     var body: some View {
         Form {
             Section {
-                Text("watch.import.title")
-                    .font(.largeTitle.bold())
-                    .fontDesign(.rounded)
-
-                Text("watch.import.body")
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            Section {
                 Picker("watch.import.type.label", selection: $draft.importKind) {
                     ForEach(WatchImportKind.allCases) { kind in
                         Text(kind.titleKey).tag(kind)
@@ -232,7 +222,12 @@ private struct WatchWalletImportView: View {
                 }
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(
+            Text("watch.import.title")
+                .fontDesign(.rounded)
+        )
+        .navigationSubtitle("watch.import.body")
+        .toolbarTitleDisplayMode(.large)
         .safeAreaBar(edge: .bottom, spacing: 0) {
             Button {
                 onImport()
@@ -280,26 +275,12 @@ private struct WatchWalletImportSuccessView: View {
     var body: some View {
         Form {
             Section {
-                VStack(spacing: 16) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 64))
-                        .foregroundStyle(.green)
-                        .accessibilityHidden(true)
-
-                    VStack(spacing: 8) {
-                        Text("watch.success.title")
-                            .font(.largeTitle.bold())
-                            .fontDesign(.rounded)
-                            .multilineTextAlignment(.center)
-
-                        Text("watch.success.body")
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 64))
+                    .foregroundStyle(.green)
+                    .accessibilityHidden(true)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 20)
             }
 
             Section {
@@ -326,6 +307,12 @@ private struct WatchWalletImportSuccessView: View {
                     .fontDesign(.rounded)
             }
         }
+        .navigationTitle(
+            Text("watch.success.title")
+                .fontDesign(.rounded)
+        )
+        .navigationSubtitle("watch.success.body")
+        .toolbarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
         .safeAreaBar(edge: .bottom, spacing: 0) {
             Button {
@@ -354,17 +341,19 @@ private struct WatchWalletImportFailureView: View {
 
     var body: some View {
         ContentUnavailableView {
-            Label {
-                Text("watch.failure.title")
-                    .fontDesign(.rounded)
-            } icon: {
-                Image(systemName: "exclamationmark.triangle")
-            }
-        } description: {
-            Text("watch.failure.body")
+            Image(systemName: "exclamationmark.triangle")
+                .font(.largeTitle)
+                .foregroundStyle(.secondary)
+                .accessibilityHidden(true)
         } actions: {
             Button("watch.failure.action.restart", action: onRestart)
         }
+        .navigationTitle(
+            Text("watch.failure.title")
+                .fontDesign(.rounded)
+        )
+        .navigationSubtitle("watch.failure.body")
+        .toolbarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
         .sensoryFeedback(.error, trigger: errorFeedback)
         .onAppear {
