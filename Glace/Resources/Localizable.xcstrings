@@ -242,7 +242,7 @@
       }
     },
     "watch.success.title" : {
-      "comment" : "Rounded large navigation-bar title after successful watch-only wallet import.",
+      "comment" : "Rounded heading on successful watch-only wallet import.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -254,7 +254,7 @@
       }
     },
     "watch.success.body" : {
-      "comment" : "Navigation-bar subtitle after valid public wallet data is securely stored.",
+      "comment" : "Success explanation after valid public wallet data is securely stored.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -326,7 +326,7 @@
       }
     },
     "watch.failure.title" : {
-      "comment" : "Rounded large navigation-bar title for an unexpected watch-only import state.",
+      "comment" : "Title for an unexpected watch-only import state.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -338,7 +338,7 @@
       }
     },
     "watch.failure.body" : {
-      "comment" : "Navigation-bar subtitle for an unexpected missing import result.",
+      "comment" : "Description for an unexpected missing import result.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -578,7 +578,7 @@
       }
     },
     "onboarding.brand.title" : {
-      "comment" : "Short product name used as the rounded large navigation-bar title on onboarding.",
+      "comment" : "Short product name shown prominently on the onboarding screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -602,7 +602,7 @@
       }
     },
     "onboarding.hero.title" : {
-      "comment" : "Navigation-bar subtitle contrasting wallet visibility with offline key storage on onboarding.",
+      "comment" : "Primary onboarding promise contrasting wallet visibility with offline key storage.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -626,7 +626,7 @@
       }
     },
     "passcode.confirm.body" : {
-      "comment" : "Navigation-bar subtitle for the Confirm Passcode screen.",
+      "comment" : "Instruction beneath the Confirm Passcode heading.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -638,7 +638,7 @@
       }
     },
     "passcode.confirm.title" : {
-      "comment" : "Rounded large navigation-bar title for the second passcode entry screen.",
+      "comment" : "Rounded heading for the second passcode entry screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -734,7 +734,7 @@
       }
     },
     "passcode.set.body" : {
-      "comment" : "Navigation-bar subtitle for the Set a Passcode screen.",
+      "comment" : "Instruction beneath the Set a Passcode heading.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -746,7 +746,7 @@
       }
     },
     "passcode.set.title" : {
-      "comment" : "Rounded large navigation-bar title for the first passcode entry screen.",
+      "comment" : "Rounded heading for the first passcode entry screen.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

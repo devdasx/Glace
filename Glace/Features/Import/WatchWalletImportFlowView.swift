@@ -275,12 +275,26 @@ private struct WatchWalletImportSuccessView: View {
     var body: some View {
         Form {
             Section {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 64))
-                    .foregroundStyle(.green)
-                    .accessibilityHidden(true)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 20)
+                VStack(spacing: 16) {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 64))
+                        .foregroundStyle(.green)
+                        .accessibilityHidden(true)
+
+                    VStack(spacing: 8) {
+                        Text("watch.success.title")
+                            .font(.largeTitle.bold())
+                            .fontDesign(.rounded)
+                            .multilineTextAlignment(.center)
+
+                        Text("watch.success.body")
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
             }
 
             Section {
@@ -307,12 +321,6 @@ private struct WatchWalletImportSuccessView: View {
                     .fontDesign(.rounded)
             }
         }
-        .navigationTitle(
-            Text("watch.success.title")
-                .fontDesign(.rounded)
-        )
-        .navigationSubtitle("watch.success.body")
-        .toolbarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
         .safeAreaBar(edge: .bottom, spacing: 0) {
             Button {
@@ -341,19 +349,17 @@ private struct WatchWalletImportFailureView: View {
 
     var body: some View {
         ContentUnavailableView {
-            Image(systemName: "exclamationmark.triangle")
-                .font(.largeTitle)
-                .foregroundStyle(.secondary)
-                .accessibilityHidden(true)
+            Label {
+                Text("watch.failure.title")
+                    .fontDesign(.rounded)
+            } icon: {
+                Image(systemName: "exclamationmark.triangle")
+            }
+        } description: {
+            Text("watch.failure.body")
         } actions: {
             Button("watch.failure.action.restart", action: onRestart)
         }
-        .navigationTitle(
-            Text("watch.failure.title")
-                .fontDesign(.rounded)
-        )
-        .navigationSubtitle("watch.failure.body")
-        .toolbarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
         .sensoryFeedback(.error, trigger: errorFeedback)
         .onAppear {
