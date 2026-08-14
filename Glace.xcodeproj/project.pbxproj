@@ -10,21 +10,12 @@
 		486C374F9F4838F2CF65BF2A /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */; };
 		57F9CB9BD1AE71D75F2A01C6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3E708C179B88D251EABBE /* OnboardingView.swift */; };
 		6B4DC1FDF0F7497330FF9CF3 /* GlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */; };
-		91684329151E071839FE3D69 /* SignerOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE98F799ACB0EEB4E1C0D6 /* SignerOnboardingView.swift */; };
-		C244201E622A14AF844447A5 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 25C3F7A6F82BEBAD197828B5 /* InfoPlist.xcstrings */; };
 		C257C755A040225AB8EE65E7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */; };
-		E1AD470C3F08B3DF8904EA0F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 81570520756DD0D698D7786C /* Localizable.xcstrings */; };
-		E463A901764FCBA2F906CCE7 /* GlaceSignerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F4AD4258531372344970A /* GlaceSignerApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		15952F2CC402E39E5DA40E47 /* GlaceSigner.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GlaceSigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		25C3F7A6F82BEBAD197828B5 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		4CCE98F799ACB0EEB4E1C0D6 /* SignerOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerOnboardingView.swift; sourceTree = "<group>"; };
 		70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlaceApp.swift; sourceTree = "<group>"; };
-		81570520756DD0D698D7786C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		8F2F4AD4258531372344970A /* GlaceSignerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlaceSignerApp.swift; sourceTree = "<group>"; };
 		9FC3E708C179B88D251EABBE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EA982764E3AE352D2373E0B3 /* Glace.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Glace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,28 +30,10 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		7D29EACB05B349E84F3F0417 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				25C3F7A6F82BEBAD197828B5 /* InfoPlist.xcstrings */,
-				81570520756DD0D698D7786C /* Localizable.xcstrings */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		92FDD2808E6ABDD8A1A96D23 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				DCE0DD26B443BAF0108FB5B8 /* Onboarding */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
 		9857F43231F114A33AC85694 = {
 			isa = PBXGroup;
 			children = (
 				995C8BAFCA8279AA6376C9F5 /* Glace */,
-				E1111EE5D9C18031C06371D2 /* GlaceSigner */,
 				B0505A53C9A8F880B2FA42C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				EA982764E3AE352D2373E0B3 /* Glace.app */,
-				15952F2CC402E39E5DA40E47 /* GlaceSigner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,24 +71,6 @@
 				E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		DCE0DD26B443BAF0108FB5B8 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				4CCE98F799ACB0EEB4E1C0D6 /* SignerOnboardingView.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		E1111EE5D9C18031C06371D2 /* GlaceSigner */ = {
-			isa = PBXGroup;
-			children = (
-				92FDD2808E6ABDD8A1A96D23 /* Features */,
-				7D29EACB05B349E84F3F0417 /* Resources */,
-				8F2F4AD4258531372344970A /* GlaceSignerApp.swift */,
-			);
-			path = GlaceSigner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,24 +94,6 @@
 			productReference = EA982764E3AE352D2373E0B3 /* Glace.app */;
 			productType = "com.apple.product-type.application";
 		};
-		648A3DB273D372F52C5855FA /* GlaceSigner */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 385E0DFCB6BD2E59A79663E9 /* Build configuration list for PBXNativeTarget "GlaceSigner" */;
-			buildPhases = (
-				B9F353D6A98028EB0805A9AB /* Sources */,
-				824A92AF35E4EDF05ABAB909 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GlaceSigner;
-			packageProductDependencies = (
-			);
-			productName = GlaceSigner;
-			productReference = 15952F2CC402E39E5DA40E47 /* GlaceSigner.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,9 +104,6 @@
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					3A6D2F66C3B53E5ABB92B012 = {
-						ProvisioningStyle = Automatic;
-					};
-					648A3DB273D372F52C5855FA = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -190,7 +123,6 @@
 			projectRoot = "";
 			targets = (
 				3A6D2F66C3B53E5ABB92B012 /* Glace */,
-				648A3DB273D372F52C5855FA /* GlaceSigner */,
 			);
 		};
 /* End PBXProject section */
@@ -205,15 +137,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		824A92AF35E4EDF05ABAB909 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C244201E622A14AF844447A5 /* InfoPlist.xcstrings in Resources */,
-				E1AD470C3F08B3DF8904EA0F /* Localizable.xcstrings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -223,15 +146,6 @@
 			files = (
 				6B4DC1FDF0F7497330FF9CF3 /* GlaceApp.swift in Sources */,
 				57F9CB9BD1AE71D75F2A01C6 /* OnboardingView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B9F353D6A98028EB0805A9AB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E463A901764FCBA2F906CCE7 /* GlaceSignerApp.swift in Sources */,
-				91684329151E071839FE3D69 /* SignerOnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,35 +310,6 @@
 			};
 			name = Release;
 		};
-		C04B4057AF9C76AD04FC68EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = GlaceSigner;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devdasx.glace.signer;
-				PRODUCT_NAME = GlaceSigner;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		CEA7549E528C7CA86B436856 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -454,47 +339,9 @@
 			};
 			name = Release;
 		};
-		EE63ADB315DAFA5D1EE13324 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = GlaceSigner;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devdasx.glace.signer;
-				PRODUCT_NAME = GlaceSigner;
-				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		385E0DFCB6BD2E59A79663E9 /* Build configuration list for PBXNativeTarget "GlaceSigner" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C04B4057AF9C76AD04FC68EA /* Debug */,
-				EE63ADB315DAFA5D1EE13324 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		97648401A3BCA93D38EA4831 /* Build configuration list for PBXNativeTarget "Glace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
