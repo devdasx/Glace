@@ -26,7 +26,7 @@
       }
     },
     "watch.import.body" : {
-      "comment" : "Navigation-bar subtitle explaining that the watch app accepts public Bitcoin data only.",
+      "comment" : "Top-of-form explanatory subtitle stating that the watch app accepts public Bitcoin data only.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

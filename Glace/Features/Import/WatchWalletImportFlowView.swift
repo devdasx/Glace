@@ -179,8 +179,17 @@ private struct WatchWalletImportView: View {
                 }
                 .pickerStyle(.navigationLink)
             } header: {
-                Text("watch.import.type.section")
-                    .fontDesign(.rounded)
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("watch.import.body")
+                        .font(.body)
+                        .foregroundStyle(.secondary)
+                        .textCase(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Text("watch.import.type.section")
+                        .fontDesign(.rounded)
+                }
             }
 
             Section {
@@ -226,7 +235,6 @@ private struct WatchWalletImportView: View {
             Text("watch.import.title")
                 .fontDesign(.rounded)
         )
-        .navigationSubtitle("watch.import.body")
         .toolbarTitleDisplayMode(.large)
         .safeAreaBar(edge: .bottom, spacing: 0) {
             Button {
