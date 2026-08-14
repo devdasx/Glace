@@ -9,7 +9,7 @@ The first development phase will focus exclusively on the watch-only app.
 
 ## Project status
 
-Glace is in early design and development. The native iOS project currently contains the first watch-only onboarding experience; wallet import and Bitcoin functionality have not been implemented yet. No release or usable wallet is available. Do not use this repository or any unofficial artifact to secure real funds.
+Glace is in early design and development. The native iOS project currently contains coordinated onboarding experiences for the watch-only wallet and the separate offline signer. Wallet import, secret handling, transaction exchange, and Bitcoin signing have not been implemented yet. No release or usable wallet is available. Do not use this repository or any unofficial artifact to secure real funds.
 
 ## Core principles
 
@@ -33,12 +33,13 @@ Generate and build the project from a clean checkout:
 ```sh
 xcodegen generate --spec project.yml
 xcodebuild -project Glace.xcodeproj -scheme Glace -destination 'generic/platform=iOS Simulator' build
+xcodebuild -project Glace.xcodeproj -scheme GlaceSigner -destination 'generic/platform=iOS Simulator' build
 ```
 
 The app currently has no third-party runtime dependencies. Simulator builds verify compilation and layout behavior; the meaning and physical feel of haptic feedback must also be checked on supported hardware before release.
 
 ## Security
 
-The watch-only application will never request or store seed phrases, private keys, WIF keys, or other signing secrets. The signing application will be developed later as a separate product and security boundary.
+The watch-only application will never request or store seed phrases, private keys, WIF keys, or other signing secrets. The signing application is a separate product and security boundary intended for a permanently disconnected device. Its current onboarding is a design prototype only; it does not yet import, protect, derive, or use secret material.
 
 No software can honestly guarantee absolute safety. Future Glace releases must state exactly what was verified, publish the available verification evidence, and disclose residual risks and any Apple-controlled build or distribution steps that cannot be reproduced independently.

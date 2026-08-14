@@ -68,7 +68,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Glace accepts public wallet information only. It can watch your Bitcoin, but it cannot sign or spend it."
+            "value" : "Glace holds public wallet information only. It watches your Bitcoin; Glace Signer reviews and signs requests offline."
           }
         }
       }

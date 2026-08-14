@@ -48,11 +48,43 @@ targets:
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
         SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
 
+  GlaceSigner:
+    type: application
+    platform: iOS
+    sources:
+      - path: GlaceSigner
+    settings:
+      base:
+        CODE_SIGN_STYLE: Automatic
+        CURRENT_PROJECT_VERSION: "1"
+        ENABLE_PREVIEWS: YES
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: GlaceSigner
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.finance
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        MARKETING_VERSION: "0.1.0"
+        PRODUCT_BUNDLE_IDENTIFIER: com.devdasx.glace.signer
+        PRODUCT_NAME: GlaceSigner
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+
 schemes:
   Glace:
     build:
       targets:
         Glace: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+
+  GlaceSigner:
+    build:
+      targets:
+        GlaceSigner: all
     run:
       config: Debug
     archive:
