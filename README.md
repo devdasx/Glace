@@ -10,9 +10,9 @@ Glace is in early design and development. This repository currently contains the
 
 ## Visual identity
 
-<img src="Glace/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="Glace app icon: an open crystalline aperture" width="144">
+<img src="Glace/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="Glace app icon: an open geometric G" width="144">
 
-Glace uses an open crystalline aperture to represent transparent observation without signing authority. Its glacial geometry is shared with Glace Signer, while the open center makes the watch-only role recognizable at a glance. The same master artwork is used by iOS as the application icon and inside the native onboarding experience.
+Glace uses a bold, open geometric `G` to represent observation without signing authority. The deliberate opening distinguishes the watch-only role, while the companion signer completes the same form with a single authorization block. The reproducible [vector master](Brand/GlaceAppIcon.svg) is rendered as the iOS application icon and the native onboarding brand mark.
 
 ## How the two apps complement each other
 
