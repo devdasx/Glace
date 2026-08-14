@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0998774DC596C29CA352DF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 864AFA07735C76DEA77405CA /* Assets.xcassets */; };
 		486C374F9F4838F2CF65BF2A /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */; };
 		57F9CB9BD1AE71D75F2A01C6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC3E708C179B88D251EABBE /* OnboardingView.swift */; };
 		6B4DC1FDF0F7497330FF9CF3 /* GlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */; };
@@ -16,6 +17,7 @@
 /* Begin PBXFileReference section */
 		129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		70B613BBF2ECDEF9E1D2C157 /* GlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlaceApp.swift; sourceTree = "<group>"; };
+		864AFA07735C76DEA77405CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FC3E708C179B88D251EABBE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EA982764E3AE352D2373E0B3 /* Glace.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Glace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,7 @@
 		BDB1CF17CC74852A7D9BC3EC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				864AFA07735C76DEA77405CA /* Assets.xcassets */,
 				129025A86F9FB70B6D1B4FDA /* InfoPlist.xcstrings */,
 				E82D567DC615BBEEAC5E3CA7 /* Localizable.xcstrings */,
 			);
@@ -132,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0998774DC596C29CA352DF96 /* Assets.xcassets in Resources */,
 				486C374F9F4838F2CF65BF2A /* InfoPlist.xcstrings in Resources */,
 				C257C755A040225AB8EE65E7 /* Localizable.xcstrings in Resources */,
 			);

@@ -8,6 +8,12 @@ Its independent companion is [Glace Signer: Offline Bitcoin Signer - BTC](https:
 
 Glace is in early design and development. This repository currently contains the native onboarding experience for the watch-only app. Wallet import, balance monitoring, transaction construction, PSBT exchange, broadcasting, and the companion signing workflow have not been implemented yet. No release or usable wallet is available. Do not use this repository or any unofficial artifact to secure real funds.
 
+## Visual identity
+
+<img src="Glace/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="Glace app icon: an open crystalline aperture" width="144">
+
+Glace uses an open crystalline aperture to represent transparent observation without signing authority. Its glacial geometry is shared with Glace Signer, while the open center makes the watch-only role recognizable at a glance. The same master artwork is used by iOS as the application icon and inside the native onboarding experience.
+
 ## How the two apps complement each other
 
 The planned workflow preserves an explicit air gap:

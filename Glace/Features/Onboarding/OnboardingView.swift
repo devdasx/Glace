@@ -31,15 +31,19 @@ struct OnboardingView: View {
                     Spacer(minLength: usesCompactVerticalRhythm ? 16 : 40)
 
                     VStack(spacing: usesCompactVerticalRhythm ? 16 : 24) {
-                        Image(systemName: "bitcoinsign.circle.fill")
-                            .font(
-                                .system(
-                                    size: usesCompactVerticalRhythm ? 80 : 104,
-                                    weight: .regular
+                        Image("BrandIcon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(
+                                width: usesCompactVerticalRhythm ? 88 : 112,
+                                height: usesCompactVerticalRhythm ? 88 : 112
+                            )
+                            .clipShape(
+                                .rect(
+                                    cornerRadius: usesCompactVerticalRhythm ? 20 : 26,
+                                    style: .continuous
                                 )
                             )
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(.tint)
                             .accessibilityHidden(true)
 
                         VStack(spacing: usesCompactVerticalRhythm ? 8 : 12) {
