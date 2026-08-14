@@ -12,7 +12,7 @@ Glace is in early design and development. This repository currently contains the
 
 <img src="Brand/GlaceBrandMark.svg" alt="Glace brand mark: a blue open geometric G without a background" width="144">
 
-Glace and Glace Signer share the same bold, open geometric `G`, making them immediately recognizable as two parts of one Bitcoin wallet. The watch-only app uses the standalone mark in blue; the companion signer uses the identical mark in black, adapting to the system foreground color in dark appearance for legibility. The background-free [brand-mark master](Brand/GlaceBrandMark.svg) is rendered directly in onboarding, while the opaque [app-icon master](Brand/GlaceAppIcon.svg) satisfies the iOS application-icon requirements.
+Glace and Glace Signer share the same bold, open geometric `G`, making them immediately recognizable as two parts of one Bitcoin wallet. The watch-only app uses the standalone mark in blue; the companion signer uses the identical mark in black. Both applications intentionally stay in native iOS light appearance. The background-free [brand-mark master](Brand/GlaceBrandMark.svg) is rendered directly in onboarding, while the opaque [app-icon master](Brand/GlaceAppIcon.svg) satisfies the iOS application-icon requirements.
 
 ## How the two apps complement each other
 
@@ -29,7 +29,8 @@ Interoperability will use standardized Bitcoin PSBT data, with BIP174 and BIP370
 
 - Bitcoin only, with comprehensive support planned for established address, script, public-key, and derivation standards, including BIP32, BIP44, BIP49, BIP84, and BIP86.
 - Native iOS 26 interfaces built with current Apple frameworks and Swift APIs.
-- Localization-ready UI with English source strings first, native LTR/RTL behavior, adaptive iPhone/iPad layouts, Dynamic Type, and complete light/dark appearance support.
+- Localization-ready UI with English source strings first, native LTR/RTL behavior, adaptive iPhone/iPad layouts, Dynamic Type, and a deliberate native light-only appearance.
+- Apple system typography throughout, with the native rounded San Francisco design reserved for titles and headings.
 - Deliberate, restrained interaction design with meaningful animation, accessibility, and semantic haptic feedback.
 - Public source history and a verifiable release process designed to connect future binaries to exact source revisions, build inputs, signatures, provenance, and checksums.
 
@@ -46,10 +47,10 @@ Generate and build the project from a clean checkout:
 
 ```sh
 xcodegen generate --spec project.yml
-xcodebuild -project Glace.xcodeproj -scheme Glace -destination 'generic/platform=iOS Simulator' build
+xcodebuild -project Glace.xcodeproj -scheme Glace -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build
 ```
 
-The app currently has no third-party runtime dependencies. Simulator builds verify compilation and layout behavior; the meaning and physical feel of haptic feedback must also be checked on supported hardware before release.
+The app currently has no third-party runtime dependencies. The command above performs a compile-only generic iOS build without booting Simulator. Runtime Simulator validation is performed by the project owner, and the meaning and physical feel of haptic feedback must be checked on supported hardware before release.
 
 ## Security
 

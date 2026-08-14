@@ -26,6 +26,7 @@ struct OnboardingView: View {
                         Image(systemName: "eye")
                     }
                     .font(.subheadline.weight(.semibold))
+                    .fontDesign(.rounded)
                     .foregroundStyle(.secondary)
 
                     Spacer(minLength: usesCompactVerticalRhythm ? 16 : 40)
@@ -43,10 +44,12 @@ struct OnboardingView: View {
                         VStack(spacing: usesCompactVerticalRhythm ? 8 : 12) {
                             Text("onboarding.brand.title")
                                 .font(.largeTitle.bold())
+                                .fontDesign(.rounded)
                                 .foregroundStyle(.primary)
 
                             Text("onboarding.hero.title")
                                 .font(.title2.weight(.semibold))
+                                .fontDesign(.rounded)
                                 .foregroundStyle(.primary)
                                 .multilineTextAlignment(.center)
 
@@ -73,6 +76,7 @@ struct OnboardingView: View {
                         } icon: {
                             Image(systemName: "lock.shield.fill")
                         }
+                        .fontDesign(.rounded)
                     }
                     .accessibilityElement(children: .combine)
 
@@ -142,10 +146,11 @@ struct OnboardingView: View {
 
 #Preview {
     OnboardingView()
+        .preferredColorScheme(.light)
 }
 
 #Preview {
     OnboardingView()
         .environment(\.layoutDirection, .rightToLeft)
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
 }
