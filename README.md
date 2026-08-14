@@ -9,10 +9,9 @@ Its independent companion is [Glace Signer: Offline Bitcoin Signer - BTC](https:
 Glace is in early development. The repository now implements the complete first-time watch-only setup slice:
 
 - Native onboarding followed by separate Set Passcode and Confirm Passcode screens with a six-digit, LTR, ASCII keypad; a mismatch clears both entries and returns to Set Passcode.
-- Local checksum and structure validation for supported mainnet and testnet Base58, Bech32, and Bech32m addresses.
-- Validation for standard BIP32 and supported SLIP-132 extended-public-key versions, including `xpub`, `tpub`, `ypub`, `upub`, `zpub`, `vpub`, and their supported multisignature variants.
-- Explicit wallet-standard selection for ambiguous `xpub` and `tpub` data, so BIP44, BIP49, BIP84, BIP86, and supported multisignature semantics are not guessed.
-- Advanced public metadata for a local wallet name, optional BIP32 origin path, and address gap limit.
+- Mainnet-only checksum and structure validation for supported Base58, Bech32, and Bech32m addresses; testnet material is rejected.
+- Validation for mainnet BIP32 and supported SLIP-132 extended-public-key versions, including `xpub`, `ypub`, `zpub`, and their supported multisignature variants.
+- Explicit wallet-standard selection in the main import form for ambiguous `xpub` data, so BIP44, BIP49, BIP84, BIP86, and supported multisignature semantics are not guessed.
 - AES-GCM protection derived from the confirmed passcode and this-device-only Keychain persistence, followed by an import summary and success screen.
 
 Glace deliberately does not accept a BIP39 passphrase. A passphrase changes signing keys and belongs only in Glace Signer; this app imports the resulting public account key instead.
@@ -38,7 +37,7 @@ Interoperability will use standardized Bitcoin PSBT data, with BIP174 and BIP370
 
 ## Core principles
 
-- Bitcoin only, with comprehensive support planned for established address, script, public-key, and derivation standards, including BIP32, BIP44, BIP49, BIP84, and BIP86.
+- Bitcoin mainnet only, with comprehensive support planned for established address, script, public-key, and derivation standards, including BIP32, BIP44, BIP49, BIP84, and BIP86. Testnet, signet, and regtest data are outside the product scope.
 - Native iOS 26 interfaces built only with Apple UI frameworks and current Swift APIs. Reviewed external packages may be used only below the interface for Bitcoin or security-critical core work.
 - Localization-ready UI with English source strings first, native LTR/RTL behavior, adaptive iPhone/iPad layouts, Dynamic Type, and a deliberate native light-only appearance.
 - Apple system typography throughout, with the native rounded San Francisco design reserved for titles and headings.
@@ -69,7 +68,7 @@ xcodegen generate --spec project.yml
 xcodebuild -project Glace.xcodeproj -scheme Glace -sdk iphoneos -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build-for-testing
 ```
 
-The host suite currently executes eight focused checks for exact passcode confirmation, published address vectors, BIP32 public-key parsing, checksums, standard ambiguity, path validation, and wrong-passcode authenticated-decryption failure. The Xcode command performs a compile-only generic iOS build without booting Simulator. Runtime layout and interaction validation remains with the project owner, and haptic timing must be checked on supported physical hardware before release.
+The host suite currently executes nine focused checks for exact passcode confirmation, published mainnet address vectors, BIP32 public-key parsing, checksums, standard ambiguity, explicit testnet rejection, and wrong-passcode authenticated-decryption failure. The Xcode command performs a compile-only generic iOS build without booting Simulator. Runtime layout and interaction validation remains with the project owner, and haptic timing must be checked on supported physical hardware before release.
 
 ## Security
 

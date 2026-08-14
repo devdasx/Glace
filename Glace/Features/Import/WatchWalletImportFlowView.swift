@@ -92,9 +92,6 @@ struct WatchSetupFlowView: View {
             let record = try BitcoinPublicMaterialParser.parse(
                 value: draft.publicMaterial,
                 importKind: draft.importKind,
-                walletName: draft.walletName,
-                derivationPath: draft.derivationPath,
-                gapLimit: draft.gapLimit,
                 walletStandard: draft.walletStandard
             )
             try WatchWalletVault.save(record, passcode: pendingPasscode)
@@ -113,8 +110,6 @@ struct WatchSetupFlowView: View {
                 draft.validationError = .extendedPublicKey
             case .ambiguousExtendedPublicKey:
                 draft.validationError = .extendedPublicKeyStandard
-            case .invalidDerivationPath:
-                draft.validationError = .derivationPath
             }
         } catch {
             draft.validationError = .secureStorage
@@ -148,11 +143,7 @@ private enum WatchSetupRoute: Hashable {
 struct WatchImportDraft {
     var importKind: WatchImportKind = .address
     var publicMaterial = ""
-    var walletName = ""
-    var derivationPath = ""
-    var gapLimit = 20
     var walletStandard: WatchWalletStandard?
-    var showsAdvancedSettings = false
     var validationError: WatchImportValidationError?
 }
 
@@ -161,7 +152,6 @@ enum WatchImportValidationError: Hashable {
     case address
     case extendedPublicKey
     case extendedPublicKeyStandard
-    case derivationPath
     case secureStorage
 
     var localizedKey: LocalizedStringKey {
@@ -170,7 +160,6 @@ enum WatchImportValidationError: Hashable {
         case .address: "watch.import.error.address"
         case .extendedPublicKey: "watch.import.error.extended_public_key"
         case .extendedPublicKeyStandard: "watch.import.error.extended_public_key_standard"
-        case .derivationPath: "watch.import.error.derivation_path"
         case .secureStorage: "watch.import.error.secure_storage"
         }
     }
@@ -217,30 +206,8 @@ private struct WatchWalletImportView: View {
                 Text(draft.importKind.helpKey)
             }
 
-            DisclosureGroup(
-                isExpanded: $draft.showsAdvancedSettings
-            ) {
-                TextField("watch.import.wallet_name.placeholder", text: $draft.walletName)
-
-                if draft.importKind == .extendedPublicKey {
-                    TextField(
-                        "watch.import.derivation.placeholder",
-                        text: $draft.derivationPath
-                    )
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled()
-                    .environment(\.layoutDirection, .leftToRight)
-
-                    Stepper(
-                        value: $draft.gapLimit,
-                        in: 1...1_000,
-                        step: 1
-                    ) {
-                        LabeledContent("watch.import.gap_limit.label") {
-                            Text(draft.gapLimit, format: .number)
-                        }
-                    }
-
+            if draft.importKind == .extendedPublicKey {
+                Section {
                     Picker(
                         "watch.import.wallet_standard.label",
                         selection: $draft.walletStandard
@@ -251,26 +218,10 @@ private struct WatchWalletImportView: View {
                             Text(standard.titleKey).tag(Optional(standard))
                         }
                     }
-
+                    .pickerStyle(.navigationLink)
+                } footer: {
                     Text("watch.import.wallet_standard.note")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
                 }
-
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("watch.import.passphrase.title")
-                        .font(.headline)
-                        .fontDesign(.rounded)
-                    Text("watch.import.passphrase.body")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                .padding(.vertical, 4)
-            } label: {
-                Text("watch.import.advanced.title")
-                    .font(.headline)
-                    .fontDesign(.rounded)
             }
 
             if let validationError = draft.validationError {
@@ -304,7 +255,6 @@ private struct WatchWalletImportView: View {
         .sensoryFeedback(.error, trigger: draft.validationError)
         .onChange(of: draft.importKind) { _, _ in
             draft.publicMaterial = ""
-            draft.derivationPath = ""
             draft.walletStandard = nil
             draft.validationError = nil
         }
@@ -364,12 +314,6 @@ private struct WatchWalletImportSuccessView: View {
                 if let walletStandard = record.walletStandard {
                     LabeledContent("watch.success.standard.label") {
                         Text(walletStandard.titleKey)
-                    }
-                }
-
-                if !record.walletName.isEmpty {
-                    LabeledContent("watch.success.name.label") {
-                        Text(verbatim: record.walletName)
                     }
                 }
 
@@ -447,10 +391,7 @@ private extension WatchImportKind {
 
 private extension BitcoinNetwork {
     var titleKey: LocalizedStringKey {
-        switch self {
-        case .mainnet: "bitcoin.network.mainnet"
-        case .testnet: "bitcoin.network.testnet"
-        }
+        "bitcoin.network.mainnet"
     }
 }
 

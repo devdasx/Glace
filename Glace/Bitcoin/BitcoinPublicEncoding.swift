@@ -30,6 +30,10 @@ enum BitcoinPublicEncoding {
         sha256(sha256(data))
     }
 
+    static func base58CheckEncode(_ payload: Data) -> String {
+        base58Encode(payload + doubleSHA256(payload).prefix(4))
+    }
+
     static func base58CheckDecode(_ value: String) throws -> Data {
         let decoded = try base58Decode(value)
         guard decoded.count >= 5 else {
@@ -69,6 +73,33 @@ enum BitcoinPublicEncoding {
         }
         return Data(repeating: 0, count: leadingZeroCount)
             + Data(bytes.drop { $0 == 0 })
+    }
+
+    private static func base58Encode(_ data: Data) -> String {
+        guard !data.isEmpty else {
+            return ""
+        }
+
+        let leadingZeroCount = data.prefix { $0 == 0 }.count
+        var digits = [UInt8]()
+
+        for byte in data {
+            var carry = Int(byte)
+            for index in digits.indices.reversed() {
+                let value = Int(digits[index]) * 256 + carry
+                digits[index] = UInt8(value % 58)
+                carry = value / 58
+            }
+            while carry > 0 {
+                digits.insert(UInt8(carry % 58), at: 0)
+                carry /= 58
+            }
+        }
+
+        let encoded = digits.drop { $0 == 0 }.map {
+            Character(UnicodeScalar(base58Alphabet[Int($0)]))
+        }
+        return String(repeating: "1", count: leadingZeroCount) + String(encoded)
     }
 
     static func decodeSegWitAddress(

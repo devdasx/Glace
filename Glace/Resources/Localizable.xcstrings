@@ -13,18 +13,6 @@
         }
       }
     },
-    "bitcoin.network.testnet" : {
-      "comment" : "Bitcoin test network name shown after watch-only import.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitcoin Testnet"
-          }
-        }
-      }
-    },
     "watch.import.title" : {
       "comment" : "Rounded title for the watch-only public wallet import screen.",
       "extractionState" : "manual",
@@ -128,7 +116,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accepts checksummed legacy, script-hash, SegWit, and Taproot addresses for Bitcoin mainnet or testnet."
+            "value" : "Accepts checksummed legacy, script-hash, SegWit, and Taproot addresses for Bitcoin mainnet only."
           }
         }
       }
@@ -140,61 +128,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accepts valid xpub, ypub, zpub and their standard testnet or multisignature counterparts."
-          }
-        }
-      }
-    },
-    "watch.import.advanced.title" : {
-      "comment" : "Disclosure control title for optional watch-only wallet metadata.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Advanced Settings"
-          }
-        }
-      }
-    },
-    "watch.import.wallet_name.placeholder" : {
-      "comment" : "Placeholder for an optional local wallet name.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Optional wallet name"
-          }
-        }
-      }
-    },
-    "watch.import.derivation.placeholder" : {
-      "comment" : "Placeholder for optional BIP32 origin-path metadata.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Optional origin path, such as m/84'/0'/0'"
-          }
-        }
-      }
-    },
-    "watch.import.gap_limit.label" : {
-      "comment" : "Label for the BIP32 address discovery gap limit.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Address Gap Limit"
+            "value" : "Accepts valid mainnet xpub, ypub, zpub, and supported multisignature variants."
           }
         }
       }
     },
     "watch.import.wallet_standard.label" : {
-      "comment" : "Picker label for identifying the Bitcoin standard represented by an ambiguous xpub or tpub.",
+      "comment" : "Picker label for identifying the Bitcoin standard represented by an ambiguous xpub.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -218,37 +158,13 @@
       }
     },
     "watch.import.wallet_standard.note" : {
-      "comment" : "Explains why a standard xpub or tpub prefix can require an explicit wallet-standard selection.",
+      "comment" : "Explains why a standard xpub prefix can require an explicit wallet-standard selection.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An xpub or tpub does not encode its address standard. Choose the standard shown by the wallet that exported it. Versioned ypub, zpub, Ypub, and Zpub keys are detected automatically."
-          }
-        }
-      }
-    },
-    "watch.import.passphrase.title" : {
-      "comment" : "Rounded advanced-settings heading explaining passphrase separation.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "BIP39 Passphrase"
-          }
-        }
-      }
-    },
-    "watch.import.passphrase.body" : {
-      "comment" : "Security explanation that the watch-only app never accepts a BIP39 passphrase.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Glace Watch never accepts a passphrase because it can reveal or derive signing secrets. Enter it only in Glace Signer, then import the resulting public key here."
+            "value" : "An xpub does not encode its address standard. Choose the standard shown by the wallet that exported it. Versioned ypub, zpub, Ypub, and Zpub keys are detected automatically."
           }
         }
       }
@@ -278,13 +194,13 @@
       }
     },
     "watch.import.error.address" : {
-      "comment" : "Validation error for an address with an unsupported network, encoding, length, or checksum.",
+      "comment" : "Validation error for a non-mainnet address or invalid encoding, length, or checksum.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This Bitcoin address is not valid. Check its network, characters, and checksum."
+            "value" : "Enter a valid Bitcoin mainnet address with the correct characters and checksum."
           }
         }
       }
@@ -296,31 +212,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This extended public key is not valid. Check its prefix, characters, public key, and checksum."
+            "value" : "Enter a valid Bitcoin mainnet extended public key with the correct prefix, public key, and checksum."
           }
         }
       }
     },
     "watch.import.error.extended_public_key_standard" : {
-      "comment" : "Validation guidance when a standard xpub or tpub cannot identify its wallet standard.",
+      "comment" : "Validation guidance when a standard xpub cannot identify its wallet standard.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This xpub or tpub is valid but its wallet standard is ambiguous. Open Advanced Settings and choose the standard used by the exporting wallet."
-          }
-        }
-      }
-    },
-    "watch.import.error.derivation_path" : {
-      "comment" : "Validation error for malformed BIP32 origin-path metadata.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Use a valid BIP32 path beginning with m, such as m/84'/0'/0'."
+            "value" : "This xpub is valid, but its wallet standard is ambiguous. Choose the standard used by the exporting wallet."
           }
         }
       }
@@ -405,18 +309,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wallet Standard"
-          }
-        }
-      }
-    },
-    "watch.success.name.label" : {
-      "comment" : "Label for an optional local wallet name.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wallet Name"
           }
         }
       }
@@ -548,7 +440,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Standard Extended Public Key · xpub/tpub"
+            "value" : "Standard Extended Public Key · xpub"
           }
         }
       }

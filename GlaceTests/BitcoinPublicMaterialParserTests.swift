@@ -38,9 +38,6 @@ struct BitcoinPublicMaterialParserTests {
         let record = try BitcoinPublicMaterialParser.parse(
             value: "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8",
             importKind: .extendedPublicKey,
-            walletName: "",
-            derivationPath: "m",
-            gapLimit: 20,
             walletStandard: .legacyBIP44
         )
         #expect(record.materialKind == .standardExtendedPublicKey)
@@ -53,28 +50,34 @@ struct BitcoinPublicMaterialParserTests {
             _ = try BitcoinPublicMaterialParser.parse(
                 value: "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8",
                 importKind: .extendedPublicKey,
-                walletName: "",
-                derivationPath: "m",
-                gapLimit: 20,
                 walletStandard: nil
             )
         }
     }
 
     @Test
-    func rejectsBadAddressChecksumAndBadPath() {
+    func rejectsBadAddressChecksum() {
         #expect(throws: BitcoinPublicMaterialError.self) {
             _ = try parseAddress("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNb")
         }
+    }
+
+    @Test
+    func rejectsTestnetAddressesAndExtendedPublicKeys() throws {
+        #expect(throws: BitcoinPublicMaterialError.self) {
+            _ = try parseAddress("mipcBbFg9gMiCh81Kj8tqqdgoZub1ZJRfn")
+        }
+
+        let xpub = "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8"
+        var payload = try BitcoinPublicEncoding.base58CheckDecode(xpub)
+        payload.replaceSubrange(0..<4, with: [0x04, 0x35, 0x87, 0xcf])
+        let tpub = BitcoinPublicEncoding.base58CheckEncode(payload)
 
         #expect(throws: BitcoinPublicMaterialError.self) {
             _ = try BitcoinPublicMaterialParser.parse(
-                value: "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8",
+                value: tpub,
                 importKind: .extendedPublicKey,
-                walletName: "",
-                derivationPath: "84'/0'/0'",
-                gapLimit: 20,
-                walletStandard: .nativeSegWitBIP84
+                walletStandard: .legacyBIP44
             )
         }
     }
@@ -99,9 +102,6 @@ struct BitcoinPublicMaterialParserTests {
         try BitcoinPublicMaterialParser.parse(
             value: address,
             importKind: .address,
-            walletName: "",
-            derivationPath: "",
-            gapLimit: 20,
             walletStandard: nil
         )
     }
