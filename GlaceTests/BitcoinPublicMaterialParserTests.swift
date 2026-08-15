@@ -45,14 +45,78 @@ struct BitcoinPublicMaterialParserTests {
     }
 
     @Test
-    func standardXpubRequiresExplicitWalletStandard() {
-        #expect(throws: BitcoinPublicMaterialError.self) {
-            _ = try BitcoinPublicMaterialParser.parse(
-                value: "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8",
-                importKind: .extendedPublicKey,
-                walletStandard: nil
-            )
-        }
+    func standardXpubAutomaticallyKeepsEverySingleSignatureCandidate() throws {
+        let record = try BitcoinPublicMaterialParser.parse(
+            value: "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8",
+            importKind: .extendedPublicKey,
+            walletStandard: nil
+        )
+
+        #expect(record.walletStandard == .nativeSegWitBIP84)
+        #expect(
+            record.candidateWalletStandards
+                == WatchWalletStandard.automaticDiscoveryOrder
+        )
+    }
+
+    @Test
+    func versionedPublicKeysInferTheirStandardAndManualChoiceWins() throws {
+        let ypub = try BitcoinPublicMaterialParser.parse(
+            value: "ypub6Ww3ibxVfGzLrAH1PNcjyAWenMTbbAosGNB6VvmSEgytSER9azLDWCxoJwW7Ke7icmizBMXrzBx9979FfaHxHcrArf3zbeJJJUZPf663zsP",
+            importKind: .extendedPublicKey,
+            walletStandard: nil
+        )
+        #expect(ypub.walletStandard == .nestedSegWitBIP49)
+        #expect(ypub.candidateWalletStandards == [.nestedSegWitBIP49])
+
+        let zpub = "zpub6rFR7y4Q2AijBEqTUquhVz398htDFrtymD9xYYfG1m4wAcvPhXNfE3EfH1r1ADqtfSdVCToUG868RvUUkgDKf31mGDtKsAYz2oz2AGutZYs"
+        let automatic = try BitcoinPublicMaterialParser.parse(
+            value: zpub,
+            importKind: .extendedPublicKey,
+            walletStandard: nil
+        )
+        #expect(automatic.walletStandard == .nativeSegWitBIP84)
+
+        let overridden = try BitcoinPublicMaterialParser.parse(
+            value: zpub,
+            importKind: .extendedPublicKey,
+            walletStandard: .taprootBIP86
+        )
+        #expect(overridden.walletStandard == .taprootBIP86)
+        #expect(overridden.candidateWalletStandards == [.taprootBIP86])
+    }
+
+    @Test
+    func walletStandardPickerExcludesMultisignatureChoices() {
+        #expect(
+            WatchWalletStandard.userSelectableCases == [
+                .legacyBIP44,
+                .nestedSegWitBIP49,
+                .nativeSegWitBIP84,
+                .taprootBIP86
+            ]
+        )
+    }
+
+    @Test
+    func automaticDiscoveryCandidatesSurviveSecureRecordEncoding() throws {
+        let record = try BitcoinPublicMaterialParser.parse(
+            value: "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8",
+            importKind: .extendedPublicKey,
+            walletStandard: nil
+        )
+
+        let encoded = try JSONEncoder().encode(record)
+        let decoded = try JSONDecoder().decode(
+            WatchWalletRecord.self,
+            from: encoded
+        )
+
+        #expect(decoded == record)
+        #expect(
+            decoded.candidateWalletStandards
+                == WatchWalletStandard.automaticDiscoveryOrder
+        )
     }
 
     @Test

@@ -11,8 +11,8 @@ Glace is in early development. The repository now implements the complete first-
 - Native onboarding followed by separate Set Passcode and Confirm Passcode screens with a six-digit, LTR, ASCII keypad; a mismatch clears both entries and returns to Set Passcode.
 - Scrollable wallet forms use native large navigation titles that collapse with scrolling, while explanatory subtitles sit at the top of the form outside the app bar and its cards; focused onboarding, passcode, completion, and error screens retain their purpose-built content hierarchy.
 - Mainnet-only checksum and structure validation for supported Base58, Bech32, and Bech32m addresses; testnet material is rejected.
-- Validation for mainnet BIP32 and supported SLIP-132 extended-public-key versions, including `xpub`, `ypub`, `zpub`, and their supported multisignature variants.
-- Explicit wallet-standard selection in the main import form for ambiguous `xpub` data, so BIP44, BIP49, BIP84, BIP86, and supported multisignature semantics are not guessed.
+- Validation for mainnet BIP32 and supported SLIP-132 extended-public-key versions, including `xpub`, `ypub`, and `zpub`.
+- A single-signature Wallet Standard picker defaults to Automatically: `ypub` resolves to BIP49, `zpub` resolves to BIP84, and ambiguous `xpub` data retains BIP84, BIP86, BIP49, and BIP44 discovery candidates in that order. An explicit standard always overrides automatic inference.
 - AES-GCM protection derived from the confirmed passcode and this-device-only Keychain persistence, followed by an import summary and success screen.
 
 Glace deliberately does not accept a BIP39 passphrase. A passphrase changes signing keys and belongs only in Glace Signer; this app imports the resulting public account key instead.
@@ -69,7 +69,7 @@ xcodegen generate --spec project.yml
 xcodebuild -project Glace.xcodeproj -scheme Glace -sdk iphoneos -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build-for-testing
 ```
 
-The host suite currently executes nine focused checks for exact passcode confirmation, published mainnet address vectors, BIP32 public-key parsing, checksums, standard ambiguity, explicit testnet rejection, and wrong-passcode authenticated-decryption failure. The Xcode command performs a compile-only generic iOS build without booting Simulator. Runtime layout and interaction validation remains with the project owner, and haptic timing must be checked on supported physical hardware before release.
+The host suite currently executes twelve focused checks for exact passcode confirmation, published mainnet address vectors, BIP32 and SLIP-132 public-key parsing, automatic single-signature standard candidates, manual overrides, secure-record persistence, checksums, explicit testnet rejection, and wrong-passcode authenticated-decryption failure. The Xcode command performs a compile-only generic iOS build without booting Simulator. Runtime layout and interaction validation remains with the project owner, and haptic timing must be checked on supported physical hardware before release.
 
 ## Security
 

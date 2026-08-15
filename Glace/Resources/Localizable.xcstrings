@@ -128,13 +128,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accepts valid mainnet xpub, ypub, zpub, and supported multisignature variants."
+            "value" : "Accepts valid mainnet xpub, ypub, and zpub extended public keys."
           }
         }
       }
     },
     "watch.import.wallet_standard.label" : {
-      "comment" : "Picker label for identifying the Bitcoin standard represented by an ambiguous xpub.",
+      "comment" : "Picker label for automatic or manually selected single-signature wallet-standard handling.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -146,25 +146,25 @@
       }
     },
     "watch.import.wallet_standard.unspecified" : {
-      "comment" : "Initial picker value before the user identifies an ambiguous standard extended public key.",
+      "comment" : "Default picker value that resolves versioned keys and evaluates ambiguous xpub standards automatically.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Choose When Required"
+            "value" : "Automatically"
           }
         }
       }
     },
     "watch.import.wallet_standard.note" : {
-      "comment" : "Explains why a standard xpub prefix can require an explicit wallet-standard selection.",
+      "comment" : "Explains automatic wallet-standard resolution and the precedence of an explicit user choice.",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An xpub does not encode its address standard. Choose the standard shown by the wallet that exported it. Versioned ypub, zpub, Ypub, and Zpub keys are detected automatically."
+            "value" : "Automatically uses BIP49 for ypub and BIP84 for zpub. For xpub, Glace checks BIP44, BIP49, BIP84, and BIP86. A manual choice always takes priority."
           }
         }
       }
@@ -213,18 +213,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter a valid Bitcoin mainnet extended public key with the correct prefix, public key, and checksum."
-          }
-        }
-      }
-    },
-    "watch.import.error.extended_public_key_standard" : {
-      "comment" : "Validation guidance when a standard xpub cannot identify its wallet standard.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This xpub is valid, but its wallet standard is ambiguous. Choose the standard used by the exporting wallet."
           }
         }
       }
@@ -309,6 +297,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wallet Standard"
+          }
+        }
+      }
+    },
+    "watch.success.standard.automatic.note" : {
+      "comment" : "Explains the ordered single-signature discovery set retained for an automatically imported ambiguous xpub.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic discovery keeps BIP84, BIP86, BIP49, and BIP44 available. Native SegWit is shown first when the key does not identify one standard."
           }
         }
       }

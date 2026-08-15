@@ -21,6 +21,20 @@ enum WatchWalletStandard: String, CaseIterable, Codable, Hashable, Identifiable,
     case nativeSegWitMultisig
 
     var id: Self { self }
+
+    static let userSelectableCases: [Self] = [
+        .legacyBIP44,
+        .nestedSegWitBIP49,
+        .nativeSegWitBIP84,
+        .taprootBIP86
+    ]
+
+    static let automaticDiscoveryOrder: [Self] = [
+        .nativeSegWitBIP84,
+        .taprootBIP86,
+        .nestedSegWitBIP49,
+        .legacyBIP44
+    ]
 }
 
 enum BitcoinPublicMaterialKind: String, Codable, Hashable, Sendable {
@@ -41,7 +55,6 @@ enum BitcoinPublicMaterialError: Error, Equatable {
     case empty
     case invalidAddress
     case invalidExtendedPublicKey
-    case ambiguousExtendedPublicKey
 }
 
 struct WatchWalletRecord: Codable, Equatable, Sendable {
@@ -50,6 +63,61 @@ struct WatchWalletRecord: Codable, Equatable, Sendable {
     let materialKind: BitcoinPublicMaterialKind
     let network: BitcoinNetwork
     let walletStandard: WatchWalletStandard?
+    let candidateWalletStandards: [WatchWalletStandard]
+
+    init(
+        importedValue: String,
+        importKind: WatchImportKind,
+        materialKind: BitcoinPublicMaterialKind,
+        network: BitcoinNetwork,
+        walletStandard: WatchWalletStandard?,
+        candidateWalletStandards: [WatchWalletStandard]
+    ) {
+        self.importedValue = importedValue
+        self.importKind = importKind
+        self.materialKind = materialKind
+        self.network = network
+        self.walletStandard = walletStandard
+        self.candidateWalletStandards = candidateWalletStandards
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case importedValue
+        case importKind
+        case materialKind
+        case network
+        case walletStandard
+        case candidateWalletStandards
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        importedValue = try container.decode(String.self, forKey: .importedValue)
+        importKind = try container.decode(WatchImportKind.self, forKey: .importKind)
+        materialKind = try container.decode(BitcoinPublicMaterialKind.self, forKey: .materialKind)
+        network = try container.decode(BitcoinNetwork.self, forKey: .network)
+        walletStandard = try container.decodeIfPresent(
+            WatchWalletStandard.self,
+            forKey: .walletStandard
+        )
+        candidateWalletStandards = try container.decodeIfPresent(
+            [WatchWalletStandard].self,
+            forKey: .candidateWalletStandards
+        ) ?? walletStandard.map { [$0] } ?? []
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(importedValue, forKey: .importedValue)
+        try container.encode(importKind, forKey: .importKind)
+        try container.encode(materialKind, forKey: .materialKind)
+        try container.encode(network, forKey: .network)
+        try container.encodeIfPresent(walletStandard, forKey: .walletStandard)
+        try container.encode(
+            candidateWalletStandards,
+            forKey: .candidateWalletStandards
+        )
+    }
 }
 
 enum BitcoinPublicMaterialParser {
@@ -65,12 +133,12 @@ enum BitcoinPublicMaterialParser {
         let parsed: (
             kind: BitcoinPublicMaterialKind,
             network: BitcoinNetwork,
-            walletStandard: WatchWalletStandard?
+            walletStandards: [WatchWalletStandard]
         )
         switch importKind {
         case .address:
             let address = try parseAddress(value)
-            parsed = (address.0, address.1, nil)
+            parsed = (address.0, address.1, [])
         case .extendedPublicKey:
             parsed = try parseExtendedPublicKey(
                 value,
@@ -83,7 +151,8 @@ enum BitcoinPublicMaterialParser {
             importKind: importKind,
             materialKind: parsed.kind,
             network: parsed.network,
-            walletStandard: parsed.walletStandard
+            walletStandard: parsed.walletStandards.first,
+            candidateWalletStandards: parsed.walletStandards
         )
     }
 
@@ -122,7 +191,7 @@ enum BitcoinPublicMaterialParser {
     ) throws -> (
         kind: BitcoinPublicMaterialKind,
         network: BitcoinNetwork,
-        walletStandard: WatchWalletStandard
+        walletStandards: [WatchWalletStandard]
     ) {
         let payload: Data
         do {
@@ -152,16 +221,18 @@ enum BitcoinPublicMaterialParser {
         } catch {
             throw BitcoinPublicMaterialError.invalidExtendedPublicKey
         }
-        let standard: WatchWalletStandard
-        if let inferredStandard = versionInfo.inferredStandard {
-            standard = inferredStandard
+        let standards: [WatchWalletStandard]
+        if let selectedStandard {
+            // An explicit user choice always overrides prefix inference.
+            standards = [selectedStandard]
+        } else if let inferredStandard = versionInfo.inferredStandard {
+            standards = [inferredStandard]
         } else {
-            guard let selectedStandard else {
-                throw BitcoinPublicMaterialError.ambiguousExtendedPublicKey
-            }
-            standard = selectedStandard
+            // xpub does not encode its script standard. Keep every supported
+            // single-signature interpretation available for discovery.
+            standards = WatchWalletStandard.automaticDiscoveryOrder
         }
-        return (versionInfo.kind, versionInfo.network, standard)
+        return (versionInfo.kind, versionInfo.network, standards)
     }
 
     private struct VersionInfo {

@@ -108,8 +108,6 @@ struct WatchSetupFlowView: View {
                 draft.validationError = .address
             case .invalidExtendedPublicKey:
                 draft.validationError = .extendedPublicKey
-            case .ambiguousExtendedPublicKey:
-                draft.validationError = .extendedPublicKeyStandard
             }
         } catch {
             draft.validationError = .secureStorage
@@ -151,7 +149,6 @@ enum WatchImportValidationError: Hashable {
     case empty
     case address
     case extendedPublicKey
-    case extendedPublicKeyStandard
     case secureStorage
 
     var localizedKey: LocalizedStringKey {
@@ -159,7 +156,6 @@ enum WatchImportValidationError: Hashable {
         case .empty: "watch.import.error.empty"
         case .address: "watch.import.error.address"
         case .extendedPublicKey: "watch.import.error.extended_public_key"
-        case .extendedPublicKeyStandard: "watch.import.error.extended_public_key_standard"
         case .secureStorage: "watch.import.error.secure_storage"
         }
     }
@@ -213,7 +209,7 @@ private struct WatchWalletImportView: View {
                     ) {
                         Text("watch.import.wallet_standard.unspecified")
                             .tag(nil as WatchWalletStandard?)
-                        ForEach(WatchWalletStandard.allCases) { standard in
+                        ForEach(WatchWalletStandard.userSelectableCases) { standard in
                             Text(standard.titleKey).tag(Optional(standard))
                         }
                     }
@@ -318,6 +314,13 @@ private struct WatchWalletImportSuccessView: View {
                     LabeledContent("watch.success.standard.label") {
                         Text(walletStandard.titleKey)
                     }
+                }
+
+                if record.candidateWalletStandards.count > 1 {
+                    Text("watch.success.standard.automatic.note")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
                 Text(verbatim: record.importedValue)
